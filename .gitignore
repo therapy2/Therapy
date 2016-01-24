@@ -3,4 +3,6 @@
 **/*.iml
 .DS_Store
 **/*.DS_Store
-
+aws_therapy.pem
+TY-sandbox/src/main/resources/application.conf
+*/target

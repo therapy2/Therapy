@@ -4,17 +4,32 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.asia</groupId>
+    <groupId>com.sax</groupId>
     <artifactId>therapy</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>Social Therapy</name>
+
+    <properties>
+        <scala.version>2.11</scala.version>
+        <json4s.version>3.3.0</json4s.version>
+        <twitter4j.version>4.0.4</twitter4j.version>
+        <twitter4s.version>0.1</twitter4s.version>
+        <typesafe.version>1.2.1</typesafe.version>
+        <akka.version>2.4.1</akka.version>
+    </properties>
 
     <modules>
         <!-- Be advised that the project builds in the order listed below -->
         <module>TY-algorithms</module>
         <module>TY-sandbox</module>
     </modules>
-
+    <dependencies>
+        <dependency>
+            <groupId>com.typesafe</groupId>
+            <artifactId>config</artifactId>
+            <version>${typesafe.version}</version>
+        </dependency>
+    </dependencies>
     
 </project>
