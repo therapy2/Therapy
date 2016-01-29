@@ -1,17 +1,23 @@
 package com.sax.therapy.stream
 
+import Marshaller._
+import com.sax.therapy.models.raw.{Tweet, Remove, SocialObject}
 import twitter4j._
+
 
 /**
   * Created by therapy2 on 1/24/16.
   * Listeners for the Twitter stream API.
   */
 object TwitterListeners {
-
   val logger = Logger.getLogger(TwitterListeners.getClass)
   def rawMessageListener = new RawStreamListener {
     override def onMessage(s: String): Unit = {
-      println(s)
+      //TODO: implement storage
+      if(s.substring(0, 8) == "{\"delete")
+        println(toRemove(s))
+      else
+        println(toTweet(s))
     }
     override def onException(ex: Exception): Unit = { logger.error("Unable to listen to messages " + ex ) }
   }

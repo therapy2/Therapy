@@ -12,11 +12,13 @@
 
     <properties>
         <scala.version>2.11</scala.version>
+        <scalatest.version>2.2.4</scalatest.version>
         <json4s.version>3.3.0</json4s.version>
         <twitter4j.version>4.0.4</twitter4j.version>
         <twitter4s.version>0.1</twitter4s.version>
         <typesafe.version>1.2.1</typesafe.version>
         <akka.version>2.4.1</akka.version>
+        <elastic.version>2.1.1</elastic.version>
     </properties>
 
     <modules>
@@ -29,6 +31,18 @@
             <groupId>com.typesafe</groupId>
             <artifactId>config</artifactId>
             <version>${typesafe.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.scalatest</groupId>
+            <artifactId>scalatest_${scala.version}</artifactId>
+            <version>2.2.4</version>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.scala-lang</groupId>
+                    <artifactId>scala-library</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
     </dependencies>
     

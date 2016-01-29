@@ -1,0 +1,163 @@
+{
+  "cluster": {
+    "properties": {
+      "cluster_id": {
+        "type": "string",
+        "index":"not_analyzed",
+        "doc_values":true
+      },
+      "created_at": {
+        "type": "dateOptionalTime",
+        "index":"not_analyzed",
+        "doc_values":true
+      },
+      "merged_at": {
+        "type": "dateOptionalTime",
+        "index":"not_analyzed",
+        "doc_values":true
+      },
+      "cluster_size": {
+        "type": "long",
+        "index":"not_analyzed",
+        "doc_values":true
+      },
+      "merge_count": {
+        "type": "long",
+        "index":"not_analyzed",
+        "doc_values":true
+      },
+      "topic": {
+        "type": "string",
+        "index":"not_analyzed",
+        "doc_values":true
+      },
+      "summary": {
+        "type": "string",
+        "index":"not_analyzed",
+        "doc_values":true
+      },
+      "scores": {
+        "properties": {
+          "news":{
+            "type": "double",
+            "index":"not_analyzed",
+            "doc_values":true
+          },
+           "veracity": {
+            "type": "double",
+            "index":"not_analyzed",
+            "doc_values":true
+          }         
+        }
+      },
+      "tweets": {
+        "properties": {
+          "id":{
+            "type": "string",
+            "index":"not_analyzed",
+            "doc_values":true
+          }       
+        }
+      },
+      "people": {
+        "properties": {
+          "token":{
+            "type": "string",
+            "index":"not_analyzed",
+            "doc_values":true
+          }       
+        }
+      },
+      "places": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "index":"not_analyzed",
+            "doc_values":true
+          },
+          "token": {
+            "name": "string",
+            "index":"not_analyzed",
+            "doc_values":true
+          }
+        }
+      },
+      "orgs": {
+        "properties": {
+          "token": {
+            "type": "string",
+            "index":"not_analyzed",
+            "doc_values":true
+          },
+          "ticker": {
+            "type": "string",
+            "index":"not_analyzed",
+            "doc_values":true
+          }
+        }
+      },
+      "hashtags": {
+        "properties": {
+          "token": {
+            "type": "string",
+            "index":"not_analyzed",
+            "doc_values":true
+          }
+        }
+      },
+      "mentions": {
+        "properties": {
+          "token": {
+            "type": "string",
+            "index":"not_analyzed",
+            "doc_values":true
+          }
+        }
+      },
+      "urls": {
+        "properties": {
+          "token": {
+            "type": "string",
+            "index":"not_analyzed",
+            "doc_values":true
+          }
+        }
+      },
+      "unit_clusters": {
+        "properties": {
+          "tweets": {
+            "properties": {
+              "id":{
+                "type": "string",
+                "index":"not_analyzed",
+                "doc_values":true
+              }       
+            }
+          },
+          "merged_at": {
+            "type": "dateOptionalTime",
+            "index":"not_analyzed",
+            "doc_values":true 
+          }
+        }
+      },
+      "verification_history": {
+        "properties": {
+          "date": {
+            "type": "dateOptionalTime",
+            "index":"not_analyzed",
+            "doc_values":true 
+          },
+          "score": {
+            "type": "double",
+            "index":"not_analyzed",
+            "doc_values":true
+          }  
+        }
+      }        
+    },
+    "_all": {
+      "enabled": false
+    }
+  }
+}

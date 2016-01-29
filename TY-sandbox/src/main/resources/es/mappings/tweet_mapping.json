@@ -1,0 +1,3771 @@
+{
+  "tweet": {
+    "properties": {
+      "social_platform": {
+        "type": "string",
+        "index":"not_analyzed",
+        "doc_values":true
+      },
+      "date": {
+        "type": "date",
+        "format": "dateOptionalTime",
+        "index":"not_analyzed",
+        "doc_values":true
+      },
+      "favorite_count": {
+        "type": "long",
+        "index":"not_analyzed",
+        "doc_values":true
+      },
+      "followers_count": {
+        "type": "long",
+        "index":"not_analyzed",
+        "doc_values":true
+      },
+      "friends_count": {
+        "type": "long",
+        "index":"not_analyzed",
+        "doc_values":true
+      },
+      "hashtag_entities": {
+        "properties": {
+          "indices": {
+            "properties": {
+              "begin": {
+                "type": "long",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "end": {
+                "type": "long",
+                "index":"not_analyzed",
+                "doc_values":true
+              }
+            }
+          },
+          "text": {
+            "type": "string",
+            "index":"not_analyzed",
+            "doc_values":true
+          }
+        }
+      },
+      "id": {
+        "type": "string",
+        "index":"not_analyzed",
+        "doc_values":true
+      },
+      "is_retweet": {
+        "type": "boolean",
+        "index":"not_analyzed",
+        "doc_values":true
+      },
+      "language": {
+        "type": "string",
+        "index":"not_analyzed",
+        "doc_values":true
+      },
+      "media": {
+        "properties": {
+          "display_url": {
+            "type": "string",
+            "index":"not_analyzed",
+            "doc_values":true
+          },
+          "id": {
+            "type": "long",
+            "index":"not_analyzed",
+            "doc_values":true
+          },
+          "indices": {
+            "properties": {
+              "begin": {
+                "type": "long",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "end": {
+                "type": "long",
+                "index":"not_analyzed",
+                "doc_values":true
+              }
+            }
+          },
+          "media_url": {
+            "type": "string",
+            "index":"not_analyzed",
+            "doc_values":true
+          },
+          "type": {
+            "type": "string",
+            "index":"not_analyzed",
+            "doc_values":true
+          },
+          "url": {
+            "type": "string",
+            "index":"not_analyzed",
+            "doc_values":true
+          }
+        }
+      },
+      "mention_entities": {
+        "properties": {
+          "id": {
+            "type": "long",
+            "index":"not_analyzed",
+            "doc_values":true
+          },
+          "indices": {
+            "properties": {
+              "begin": {
+                "type": "long",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "end": {
+                "type": "long",
+                "index":"not_analyzed",
+                "doc_values":true
+              }
+            }
+          },
+          "name": {
+            "type": "string",
+            "index":"not_analyzed",
+            "doc_values":true
+          },
+          "screen_name": {
+            "type": "string",
+            "index":"not_analyzed",
+            "doc_values":true
+          }
+        }
+      },
+      "enrichments": {
+        "properties": {
+          "has_profanity": {
+            "type": "boolean",
+            "index":"not_analyzed",
+            "doc_values":true
+          },
+          "user_has_expertise": {
+            "properties": {
+              "validation": {
+                "type": "boolean",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "categories": {
+                "type": "string",
+                "index":"not_analyzed",
+                "doc_values":true
+              }
+            }
+          },
+          "fact_opinion": {
+            "properties": {
+              "class": {
+                "type": "string",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "score": {
+                "type": "double",
+                "index":"not_analyzed",
+                "doc_values":true
+              }
+            }
+          },
+          "spam_category": {
+            "type": "string",
+            "index":"not_analyzed",
+            "doc_values":true
+          },
+          "threat_score": {
+            "type": "double",
+            "index":"not_analyzed",
+            "doc_values":true
+          },
+          "tokens": {
+            "properties": {
+              "EMOTICON": {
+                "type": "string",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "ENTITY": {
+                "properties": {
+                  "PERSON": {
+                    "type": "string",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "PLACE": {
+                    "type": "string",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "ORG": {
+                    "type": "string",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "TICKER": {
+                    "type": "string",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  }
+                }
+              },
+              "JUNK": {
+                "type": "string",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "MONEY": {
+                "type": "string",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "PUNC": {
+                "type": "string",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "TERM": {
+                "type": "string",
+                "index":"not_analyzed",
+                "doc_values":true
+              }
+            }
+          },
+          "channels": {
+            "type": "string",
+            "index":"not_analyzed",
+            "doc_values":true
+          },
+          "stream": {
+            "type": "string",
+            "index":"not_analyzed",
+            "doc_values":true
+          }
+        }
+      },
+      "place_country_code": {
+        "type": "string",
+        "index":"not_analyzed",
+        "doc_values":true
+      },
+      "place_name": {
+        "type": "string",
+        "index":"not_analyzed",
+        "doc_values":true
+      },
+      "possibly_sensitive": {
+        "type": "boolean",
+        "index":"not_analyzed",
+        "doc_values":true
+      },
+      "raw": {
+        "properties": {
+          "coordinates": {
+            "properties": {
+              "coordinates": {
+                "type": "double",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "type": {
+                "type": "string",
+                "index":"not_analyzed",
+                "doc_values":true
+              }
+            }
+          },
+          "created_at": {
+            "type": "date",
+            "format": "EEE MMM dd HH:mm:ss Z yyyy",
+            "index":"not_analyzed",
+            "doc_values":true
+          },
+          "entities": {
+            "properties": {
+              "hashtags": {
+                "properties": {
+                  "indices": {
+                    "type": "long",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "text": {
+                    "type": "string",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  }
+                }
+              },
+              "media": {
+                "properties": {
+                  "display_url": {
+                    "type": "string",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "expanded_url": {
+                    "type": "string",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "id": {
+                    "type": "long",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "id_str": {
+                    "type": "string",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "indices": {
+                    "type": "long",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "media_url": {
+                    "type": "string",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "media_url_https": {
+                    "type": "string",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "sizes": {
+                    "properties": {
+                      "large": {
+                        "properties": {
+                          "h": {
+                            "type": "long",
+                            "index":"not_analyzed",
+                            "doc_values":true
+                          },
+                          "resize": {
+                            "type": "string",
+                            "index":"not_analyzed",
+                            "doc_values":true
+                          },
+                          "w": {
+                            "type": "long",
+                            "index":"not_analyzed",
+                            "doc_values":true
+                          }
+                        }
+                      },
+                      "medium": {
+                        "properties": {
+                          "h": {
+                            "type": "long",
+                            "index":"not_analyzed",
+                            "doc_values":true
+                          },
+                          "resize": {
+                            "type": "string",
+                            "index":"not_analyzed",
+                            "doc_values":true
+                          },
+                          "w": {
+                            "type": "long",
+                            "index":"not_analyzed",
+                            "doc_values":true
+                          }
+                        }
+                      },
+                      "small": {
+                        "properties": {
+                          "h": {
+                            "type": "long",
+                            "index":"not_analyzed",
+                            "doc_values":true
+                          },
+                          "resize": {
+                            "type": "string",
+                            "index":"not_analyzed",
+                            "doc_values":true
+                          },
+                          "w": {
+                            "type": "long",
+                            "index":"not_analyzed",
+                            "doc_values":true
+                          }
+                        }
+                      },
+                      "thumb": {
+                        "properties": {
+                          "h": {
+                            "type": "long",
+                            "index":"not_analyzed",
+                            "doc_values":true
+                          },
+                          "resize": {
+                            "type": "string",
+                            "index":"not_analyzed",
+                            "doc_values":true
+                          },
+                          "w": {
+                            "type": "long",
+                            "index":"not_analyzed",
+                            "doc_values":true
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "source_status_id": {
+                    "type": "long",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "source_status_id_str": {
+                    "type": "string",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "type": {
+                    "type": "string",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "url": {
+                    "type": "string",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  }
+                }
+              },
+              "symbols": {
+                "properties": {
+                  "indices": {
+                    "type": "long",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "text": {
+                    "type": "string",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  }
+                }
+              },
+              "urls": {
+                "properties": {
+                  "display_url": {
+                    "type": "string",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "expanded_url": {
+                    "type": "string",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "indices": {
+                    "type": "long",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "url": {
+                    "type": "string",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  }
+                }
+              },
+              "user_mentions": {
+                "properties": {
+                  "id": {
+                    "type": "long",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "id_str": {
+                    "type": "string",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "indices": {
+                    "type": "long",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "name": {
+                    "type": "string",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "screen_name": {
+                    "type": "string",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  }
+                }
+              }
+            }
+          },
+          "extended_entities": {
+            "properties": {
+              "media": {
+                "properties": {
+                  "display_url": {
+                    "type": "string",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "expanded_url": {
+                    "type": "string",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "id": {
+                    "type": "long",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "id_str": {
+                    "type": "string",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "indices": {
+                    "type": "long",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "media_url": {
+                    "type": "string",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "media_url_https": {
+                    "type": "string",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "sizes": {
+                    "properties": {
+                      "large": {
+                        "properties": {
+                          "h": {
+                            "type": "long",
+                            "index":"not_analyzed",
+                            "doc_values":true
+                          },
+                          "resize": {
+                            "type": "string",
+                            "index":"not_analyzed",
+                            "doc_values":true
+                          },
+                          "w": {
+                            "type": "long",
+                            "index":"not_analyzed",
+                            "doc_values":true
+                          }
+                        }
+                      },
+                      "medium": {
+                        "properties": {
+                          "h": {
+                            "type": "long",
+                            "index":"not_analyzed",
+                            "doc_values":true
+                          },
+                          "resize": {
+                            "type": "string",
+                            "index":"not_analyzed",
+                            "doc_values":true
+                          },
+                          "w": {
+                            "type": "long",
+                            "index":"not_analyzed",
+                            "doc_values":true
+                          }
+                        }
+                      },
+                      "small": {
+                        "properties": {
+                          "h": {
+                            "type": "long",
+                            "index":"not_analyzed",
+                            "doc_values":true
+                          },
+                          "resize": {
+                            "type": "string",
+                            "index":"not_analyzed",
+                            "doc_values":true
+                          },
+                          "w": {
+                            "type": "long",
+                            "index":"not_analyzed",
+                            "doc_values":true
+                          }
+                        }
+                      },
+                      "thumb": {
+                        "properties": {
+                          "h": {
+                            "type": "long",
+                            "index":"not_analyzed",
+                            "doc_values":true
+                          },
+                          "resize": {
+                            "type": "string",
+                            "index":"not_analyzed",
+                            "doc_values":true
+                          },
+                          "w": {
+                            "type": "long",
+                            "index":"not_analyzed",
+                            "doc_values":true
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "source_status_id": {
+                    "type": "long",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "source_status_id_str": {
+                    "type": "string",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "type": {
+                    "type": "string",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "url": {
+                    "type": "string",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "video_info": {
+                    "properties": {
+                      "aspect_ratio": {
+                        "type": "long",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      },
+                      "duration_millis": {
+                        "type": "long",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      },
+                      "variants": {
+                        "properties": {
+                          "bitrate": {
+                            "type": "long",
+                            "index":"not_analyzed",
+                            "doc_values":true
+                          },
+                          "content_type": {
+                            "type": "string",
+                            "index":"not_analyzed",
+                            "doc_values":true
+                          },
+                          "url": {
+                            "type": "string",
+                            "index":"not_analyzed",
+                            "doc_values":true
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "favorite_count": {
+            "type": "long",
+            "index":"not_analyzed",
+            "doc_values":true
+          },
+          "favorited": {
+            "type": "boolean",
+            "index":"not_analyzed",
+            "doc_values":true
+          },
+          "filter_level": {
+            "type": "string",
+            "index":"not_analyzed",
+            "doc_values":true
+          },
+          "geo": {
+            "properties": {
+              "coordinates": {
+                "type": "double",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "type": {
+                "type": "string",
+                "index":"not_analyzed",
+                "doc_values":true
+              }
+            }
+          },
+          "id": {
+            "type": "long",
+            "index":"not_analyzed",
+            "doc_values":true
+          },
+          "id_str": {
+            "type": "string",
+            "index":"not_analyzed",
+            "doc_values":true
+          },
+          "in_reply_to_screen_name": {
+            "type": "string",
+            "index":"not_analyzed",
+            "doc_values":true
+          },
+          "in_reply_to_status_id": {
+            "type": "long",
+            "index":"not_analyzed",
+            "doc_values":true
+          },
+          "in_reply_to_status_id_str": {
+            "type": "string",
+            "index":"not_analyzed",
+            "doc_values":true
+          },
+          "in_reply_to_user_id": {
+            "type": "long",
+            "index":"not_analyzed",
+            "doc_values":true
+          },
+          "in_reply_to_user_id_str": {
+            "type": "string",
+            "index":"not_analyzed",
+            "doc_values":true
+          },
+          "lang": {
+            "type": "string",
+            "index":"not_analyzed",
+            "doc_values":true
+          },
+          "place": {
+            "properties": {
+              "attributes": {
+                "type": "object",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "bounding_box": {
+                "properties": {
+                  "coordinates": {
+                    "type": "double",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "type": {
+                    "type": "string",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  }
+                }
+              },
+              "country": {
+                "type": "string",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "country_code": {
+                "type": "string",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "full_name": {
+                "type": "string",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "id": {
+                "type": "string",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "name": {
+                "type": "string",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "place_type": {
+                "type": "string",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "url": {
+                "type": "string",
+                "index":"not_analyzed",
+                "doc_values":true
+              }
+            }
+          },
+          "possibly_sensitive": {
+            "type": "boolean",
+            "index":"not_analyzed",
+            "doc_values":true
+          },
+          "quoted_status": {
+            "properties": {
+              "created_at": {
+                "type": "date",
+                "format": "EEE MMM dd HH:mm:ss Z yyyy",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "entities": {
+                "properties": {
+                  "hashtags": {
+                    "properties": {
+                      "indices": {
+                        "type": "long",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      },
+                      "text": {
+                        "type": "string",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      }
+                    }
+                  },
+                  "media": {
+                    "properties": {
+                      "display_url": {
+                        "type": "string",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      },
+                      "expanded_url": {
+                        "type": "string",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      },
+                      "id": {
+                        "type": "long",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      },
+                      "id_str": {
+                        "type": "string",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      },
+                      "indices": {
+                        "type": "long",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      },
+                      "media_url": {
+                        "type": "string",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      },
+                      "media_url_https": {
+                        "type": "string",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      },
+                      "sizes": {
+                        "properties": {
+                          "large": {
+                            "properties": {
+                              "h": {
+                                "type": "long",
+                                "index":"not_analyzed",
+                                "doc_values":true
+                              },
+                              "resize": {
+                                "type": "string",
+                                "index":"not_analyzed",
+                                "doc_values":true
+                              },
+                              "w": {
+                                "type": "long",
+                                "index":"not_analyzed",
+                                "doc_values":true
+                              }
+                            }
+                          },
+                          "medium": {
+                            "properties": {
+                              "h": {
+                                "type": "long",
+                                "index":"not_analyzed",
+                                "doc_values":true
+                              },
+                              "resize": {
+                                "type": "string",
+                                "index":"not_analyzed",
+                                "doc_values":true
+                              },
+                              "w": {
+                                "type": "long",
+                                "index":"not_analyzed",
+                                "doc_values":true
+                              }
+                            }
+                          },
+                          "small": {
+                            "properties": {
+                              "h": {
+                                "type": "long",
+                                "index":"not_analyzed",
+                                "doc_values":true
+                              },
+                              "resize": {
+                                "type": "string",
+                                "index":"not_analyzed",
+                                "doc_values":true
+                              },
+                              "w": {
+                                "type": "long",
+                                "index":"not_analyzed",
+                                "doc_values":true
+                              }
+                            }
+                          },
+                          "thumb": {
+                            "properties": {
+                              "h": {
+                                "type": "long",
+                                "index":"not_analyzed",
+                                "doc_values":true
+                              },
+                              "resize": {
+                                "type": "string",
+                                "index":"not_analyzed",
+                                "doc_values":true
+                              },
+                              "w": {
+                                "type": "long",
+                                "index":"not_analyzed",
+                                "doc_values":true
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "source_status_id": {
+                        "type": "long",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      },
+                      "source_status_id_str": {
+                        "type": "string",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      },
+                      "type": {
+                        "type": "string",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      },
+                      "url": {
+                        "type": "string",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      }
+                    }
+                  },
+                  "symbols": {
+                    "properties": {
+                      "indices": {
+                        "type": "long",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      },
+                      "text": {
+                        "type": "string",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      }
+                    }
+                  },
+                  "urls": {
+                    "properties": {
+                      "display_url": {
+                        "type": "string",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      },
+                      "expanded_url": {
+                        "type": "string",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      },
+                      "indices": {
+                        "type": "long",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      },
+                      "url": {
+                        "type": "string",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      }
+                    }
+                  },
+                  "user_mentions": {
+                    "properties": {
+                      "id": {
+                        "type": "long",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      },
+                      "id_str": {
+                        "type": "string",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      },
+                      "indices": {
+                        "type": "long",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      },
+                      "name": {
+                        "type": "string",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      },
+                      "screen_name": {
+                        "type": "string",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      }
+                    }
+                  }
+                }
+              },
+              "extended_entities": {
+                "properties": {
+                  "media": {
+                    "properties": {
+                      "display_url": {
+                        "type": "string",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      },
+                      "expanded_url": {
+                        "type": "string",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      },
+                      "id": {
+                        "type": "long",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      },
+                      "id_str": {
+                        "type": "string",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      },
+                      "indices": {
+                        "type": "long",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      },
+                      "media_url": {
+                        "type": "string",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      },
+                      "media_url_https": {
+                        "type": "string",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      },
+                      "sizes": {
+                        "properties": {
+                          "large": {
+                            "properties": {
+                              "h": {
+                                "type": "long",
+                                "index":"not_analyzed",
+                                "doc_values":true
+                              },
+                              "resize": {
+                                "type": "string",
+                                "index":"not_analyzed",
+                                "doc_values":true
+                              },
+                              "w": {
+                                "type": "long",
+                                "index":"not_analyzed",
+                                "doc_values":true
+                              }
+                            }
+                          },
+                          "medium": {
+                            "properties": {
+                              "h": {
+                                "type": "long",
+                                "index":"not_analyzed",
+                                "doc_values":true
+                              },
+                              "resize": {
+                                "type": "string",
+                                "index":"not_analyzed",
+                                "doc_values":true
+                              },
+                              "w": {
+                                "type": "long",
+                                "index":"not_analyzed",
+                                "doc_values":true
+                              }
+                            }
+                          },
+                          "small": {
+                            "properties": {
+                              "h": {
+                                "type": "long",
+                                "index":"not_analyzed",
+                                "doc_values":true
+                              },
+                              "resize": {
+                                "type": "string",
+                                "index":"not_analyzed",
+                                "doc_values":true
+                              },
+                              "w": {
+                                "type": "long",
+                                "index":"not_analyzed",
+                                "doc_values":true
+                              }
+                            }
+                          },
+                          "thumb": {
+                            "properties": {
+                              "h": {
+                                "type": "long",
+                                "index":"not_analyzed",
+                                "doc_values":true
+                              },
+                              "resize": {
+                                "type": "string",
+                                "index":"not_analyzed",
+                                "doc_values":true
+                              },
+                              "w": {
+                                "type": "long",
+                                "index":"not_analyzed",
+                                "doc_values":true
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "source_status_id": {
+                        "type": "long",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      },
+                      "source_status_id_str": {
+                        "type": "string",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      },
+                      "type": {
+                        "type": "string",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      },
+                      "url": {
+                        "type": "string",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      },
+                      "video_info": {
+                        "properties": {
+                          "aspect_ratio": {
+                            "type": "long",
+                            "index":"not_analyzed",
+                            "doc_values":true
+                          },
+                          "duration_millis": {
+                            "type": "long",
+                            "index":"not_analyzed",
+                            "doc_values":true
+                          },
+                          "variants": {
+                            "properties": {
+                              "bitrate": {
+                                "type": "long",
+                                "index":"not_analyzed",
+                                "doc_values":true
+                              },
+                              "content_type": {
+                                "type": "string",
+                                "index":"not_analyzed",
+                                "doc_values":true
+                              },
+                              "url": {
+                                "type": "string",
+                                "index":"not_analyzed",
+                                "doc_values":true
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "favorite_count": {
+                "type": "long",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "favorited": {
+                "type": "boolean",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "filter_level": {
+                "type": "string",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "id": {
+                "type": "long",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "id_str": {
+                "type": "string",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "in_reply_to_screen_name": {
+                "type": "string",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "in_reply_to_status_id": {
+                "type": "long",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "in_reply_to_status_id_str": {
+                "type": "string",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "in_reply_to_user_id": {
+                "type": "long",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "in_reply_to_user_id_str": {
+                "type": "string",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "lang": {
+                "type": "string",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "possibly_sensitive": {
+                "type": "boolean",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "quoted_status_id": {
+                "type": "long",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "quoted_status_id_str": {
+                "type": "string",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "retweet_count": {
+                "type": "long",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "retweeted": {
+                "type": "boolean",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "source": {
+                "type": "string",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "text": {
+                "type": "string"
+              },
+              "truncated": {
+                "type": "boolean",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "user": {
+                "properties": {
+                  "contributors_enabled": {
+                    "type": "boolean",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "created_at": {
+                    "type": "date",
+                    "format": "EEE MMM dd HH:mm:ss Z yyyy",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "default_profile": {
+                    "type": "boolean",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "default_profile_image": {
+                    "type": "boolean",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "description": {
+                    "type": "string",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "favourites_count": {
+                    "type": "long",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "followers_count": {
+                    "type": "long",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "friends_count": {
+                    "type": "long",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "geo_enabled": {
+                    "type": "boolean",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "id": {
+                    "type": "long",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "id_str": {
+                    "type": "string",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "is_translator": {
+                    "type": "boolean",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "lang": {
+                    "type": "string",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "listed_count": {
+                    "type": "long",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "location": {
+                    "type": "string",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "name": {
+                    "type": "string",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "profile_background_color": {
+                    "type": "string",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "profile_background_image_url": {
+                    "type": "string",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "profile_background_image_url_https": {
+                    "type": "string",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "profile_background_tile": {
+                    "type": "boolean",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "profile_banner_url": {
+                    "type": "string",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "profile_image_url": {
+                    "type": "string",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "profile_image_url_https": {
+                    "type": "string",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "profile_link_color": {
+                    "type": "string",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "profile_sidebar_border_color": {
+                    "type": "string",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "profile_sidebar_fill_color": {
+                    "type": "string",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "profile_text_color": {
+                    "type": "string",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "profile_use_background_image": {
+                    "type": "boolean",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "protected": {
+                    "type": "boolean",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "screen_name": {
+                    "type": "string",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "statuses_count": {
+                    "type": "long",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "time_zone": {
+                    "type": "string",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "url": {
+                    "type": "string",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "utc_offset": {
+                    "type": "long",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "verified": {
+                    "type": "boolean",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  }
+                }
+              }
+            }
+          },
+          "quoted_status_id": {
+            "type": "long",
+            "index":"not_analyzed",
+            "doc_values":true
+          },
+          "quoted_status_id_str": {
+            "type": "string",
+            "index":"not_analyzed",
+            "doc_values":true
+          },
+          "retweet_count": {
+            "type": "long",
+            "index":"not_analyzed",
+            "doc_values":true
+          },
+          "retweeted": {
+            "type": "boolean",
+            "index":"not_analyzed",
+            "doc_values":true
+          },
+          "retweeted_status": {
+            "properties": {
+              "coordinates": {
+                "properties": {
+                  "coordinates": {
+                    "type": "double",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "type": {
+                    "type": "string",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  }
+                }
+              },
+              "created_at": {
+                "type": "date",
+                "format": "EEE MMM dd HH:mm:ss Z yyyy",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "entities": {
+                "properties": {
+                  "hashtags": {
+                    "properties": {
+                      "indices": {
+                        "type": "long",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      },
+                      "text": {
+                        "type": "string",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      }
+                    }
+                  },
+                  "media": {
+                    "properties": {
+                      "display_url": {
+                        "type": "string"
+                      },
+                      "expanded_url": {
+                        "type": "string",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      },
+                      "id": {
+                        "type": "long",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      },
+                      "id_str": {
+                        "type": "string",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      },
+                      "indices": {
+                        "type": "long",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      },
+                      "media_url": {
+                        "type": "string",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      },
+                      "media_url_https": {
+                        "type": "string",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      },
+                      "sizes": {
+                        "properties": {
+                          "large": {
+                            "properties": {
+                              "h": {
+                                "type": "long",
+                                "index":"not_analyzed",
+                                "doc_values":true
+                              },
+                              "resize": {
+                                "type": "string",
+                                "index":"not_analyzed",
+                                "doc_values":true
+                              },
+                              "w": {
+                                "type": "long",
+                                "index":"not_analyzed",
+                                "doc_values":true
+                              }
+                            }
+                          },
+                          "medium": {
+                            "properties": {
+                              "h": {
+                                "type": "long",
+                                "index":"not_analyzed",
+                                "doc_values":true
+                              },
+                              "resize": {
+                                "type": "string",
+                                "index":"not_analyzed",
+                                "doc_values":true
+                              },
+                              "w": {
+                                "type": "long",
+                                "index":"not_analyzed",
+                                "doc_values":true
+                              }
+                            }
+                          },
+                          "small": {
+                            "properties": {
+                              "h": {
+                                "type": "long",
+                                "index":"not_analyzed",
+                                "doc_values":true
+                              },
+                              "resize": {
+                                "type": "string",
+                                "index":"not_analyzed",
+                                "doc_values":true
+                              },
+                              "w": {
+                                "type": "long",
+                                "index":"not_analyzed",
+                                "doc_values":true
+                              }
+                            }
+                          },
+                          "thumb": {
+                            "properties": {
+                              "h": {
+                                "type": "long",
+                                "index":"not_analyzed",
+                                "doc_values":true
+                              },
+                              "resize": {
+                                "type": "string",
+                                "index":"not_analyzed",
+                                "doc_values":true
+                              },
+                              "w": {
+                                "type": "long",
+                                "index":"not_analyzed",
+                                "doc_values":true
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "source_status_id": {
+                        "type": "long",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      },
+                      "source_status_id_str": {
+                        "type": "string",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      },
+                      "type": {
+                        "type": "string",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      },
+                      "url": {
+                        "type": "string",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      }
+                    }
+                  },
+                  "symbols": {
+                    "properties": {
+                      "indices": {
+                        "type": "long",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      },
+                      "text": {
+                        "type": "string",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      }
+                    }
+                  },
+                  "urls": {
+                    "properties": {
+                      "display_url": {
+                        "type": "string",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      },
+                      "expanded_url": {
+                        "type": "string",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      },
+                      "indices": {
+                        "type": "long",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      },
+                      "url": {
+                        "type": "string",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      }
+                    }
+                  },
+                  "user_mentions": {
+                    "properties": {
+                      "id": {
+                        "type": "long",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      },
+                      "id_str": {
+                        "type": "string",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      },
+                      "indices": {
+                        "type": "long",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      },
+                      "name": {
+                        "type": "string",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      },
+                      "screen_name": {
+                        "type": "string",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      }
+                    }
+                  }
+                }
+              },
+              "extended_entities": {
+                "properties": {
+                  "media": {
+                    "properties": {
+                      "display_url": {
+                        "type": "string",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      },
+                      "expanded_url": {
+                        "type": "string",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      },
+                      "id": {
+                        "type": "long",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      },
+                      "id_str": {
+                        "type": "string",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      },
+                      "indices": {
+                        "type": "long",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      },
+                      "media_url": {
+                        "type": "string",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      },
+                      "media_url_https": {
+                        "type": "string",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      },
+                      "sizes": {
+                        "properties": {
+                          "large": {
+                            "properties": {
+                              "h": {
+                                "type": "long",
+                                "index":"not_analyzed",
+                                "doc_values":true
+                              },
+                              "resize": {
+                                "type": "string",
+                                "index":"not_analyzed",
+                                "doc_values":true
+                              },
+                              "w": {
+                                "type": "long",
+                                "index":"not_analyzed",
+                                "doc_values":true
+                              }
+                            }
+                          },
+                          "medium": {
+                            "properties": {
+                              "h": {
+                                "type": "long",
+                                "index":"not_analyzed",
+                                "doc_values":true
+                              },
+                              "resize": {
+                                "type": "string",
+                                "index":"not_analyzed",
+                                "doc_values":true
+                              },
+                              "w": {
+                                "type": "long",
+                                "index":"not_analyzed",
+                                "doc_values":true
+                              }
+                            }
+                          },
+                          "small": {
+                            "properties": {
+                              "h": {
+                                "type": "long",
+                                "index":"not_analyzed",
+                                "doc_values":true
+                              },
+                              "resize": {
+                                "type": "string",
+                                "index":"not_analyzed",
+                                "doc_values":true
+                              },
+                              "w": {
+                                "type": "long",
+                                "index":"not_analyzed",
+                                "doc_values":true
+                              }
+                            }
+                          },
+                          "thumb": {
+                            "properties": {
+                              "h": {
+                                "type": "long",
+                                "index":"not_analyzed",
+                                "doc_values":true
+                              },
+                              "resize": {
+                                "type": "string",
+                                "index":"not_analyzed",
+                                "doc_values":true
+                              },
+                              "w": {
+                                "type": "long",
+                                "index":"not_analyzed",
+                                "doc_values":true
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "source_status_id": {
+                        "type": "long",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      },
+                      "source_status_id_str": {
+                        "type": "string",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      },
+                      "type": {
+                        "type": "string",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      },
+                      "url": {
+                        "type": "string",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      },
+                      "video_info": {
+                        "properties": {
+                          "aspect_ratio": {
+                            "type": "long",
+                            "index":"not_analyzed",
+                            "doc_values":true
+                          },
+                          "duration_millis": {
+                            "type": "long",
+                            "index":"not_analyzed",
+                            "doc_values":true
+                          },
+                          "variants": {
+                            "properties": {
+                              "bitrate": {
+                                "type": "long",
+                                "index":"not_analyzed",
+                                "doc_values":true
+                              },
+                              "content_type": {
+                                "type": "string",
+                                "index":"not_analyzed",
+                                "doc_values":true
+                              },
+                              "url": {
+                                "type": "string",
+                                "index":"not_analyzed",
+                                "doc_values":true
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "favorite_count": {
+                "type": "long",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "favorited": {
+                "type": "boolean",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "filter_level": {
+                "type": "string",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "geo": {
+                "properties": {
+                  "coordinates": {
+                    "type": "double",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "type": {
+                    "type": "string",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  }
+                }
+              },
+              "id": {
+                "type": "long",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "id_str": {
+                "type": "string",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "in_reply_to_screen_name": {
+                "type": "string",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "in_reply_to_status_id": {
+                "type": "long",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "in_reply_to_status_id_str": {
+                "type": "string",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "in_reply_to_user_id": {
+                "type": "long",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "in_reply_to_user_id_str": {
+                "type": "string",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "lang": {
+                "type": "string",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "place": {
+                "properties": {
+                  "attributes": {
+                    "type": "object",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "bounding_box": {
+                    "properties": {
+                      "coordinates": {
+                        "type": "double",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      },
+                      "type": {
+                        "type": "string",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      }
+                    }
+                  },
+                  "country": {
+                    "type": "string",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "country_code": {
+                    "type": "string",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "full_name": {
+                    "type": "string",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "id": {
+                    "type": "string",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "name": {
+                    "type": "string",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "place_type": {
+                    "type": "string",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "url": {
+                    "type": "string",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  }
+                }
+              },
+              "possibly_sensitive": {
+                "type": "boolean",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "quoted_status": {
+                "properties": {
+                  "coordinates": {
+                    "properties": {
+                      "coordinates": {
+                        "type": "double",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      },
+                      "type": {
+                        "type": "string",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      }
+                    }
+                  },
+                  "created_at": {
+                    "type": "date",
+                    "format": "EEE MMM dd HH:mm:ss Z yyyy",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "entities": {
+                    "properties": {
+                      "hashtags": {
+                        "properties": {
+                          "indices": {
+                            "type": "long",
+                            "index":"not_analyzed",
+                            "doc_values":true
+                          },
+                          "text": {
+                            "type": "string",
+                            "index":"not_analyzed",
+                            "doc_values":true
+                          }
+                        }
+                      },
+                      "media": {
+                        "properties": {
+                          "display_url": {
+                            "type": "string",
+                            "index":"not_analyzed",
+                            "doc_values":true
+                          },
+                          "expanded_url": {
+                            "type": "string",
+                            "index":"not_analyzed",
+                            "doc_values":true
+                          },
+                          "id": {
+                            "type": "long",
+                            "index":"not_analyzed",
+                            "doc_values":true
+                          },
+                          "id_str": {
+                            "type": "string",
+                            "index":"not_analyzed",
+                            "doc_values":true
+                          },
+                          "indices": {
+                            "type": "long",
+                            "index":"not_analyzed",
+                            "doc_values":true
+                          },
+                          "media_url": {
+                            "type": "string",
+                            "index":"not_analyzed",
+                            "doc_values":true
+                          },
+                          "media_url_https": {
+                            "type": "string",
+                            "index":"not_analyzed",
+                            "doc_values":true
+                          },
+                          "sizes": {
+                            "properties": {
+                              "large": {
+                                "properties": {
+                                  "h": {
+                                    "type": "long",
+                                    "index":"not_analyzed",
+                                    "doc_values":true
+                                  },
+                                  "resize": {
+                                    "type": "string",
+                                    "index":"not_analyzed",
+                                    "doc_values":true
+                                  },
+                                  "w": {
+                                    "type": "long",
+                                    "index":"not_analyzed",
+                                    "doc_values":true
+                                  }
+                                }
+                              },
+                              "medium": {
+                                "properties": {
+                                  "h": {
+                                    "type": "long",
+                                    "index":"not_analyzed",
+                                    "doc_values":true
+                                  },
+                                  "resize": {
+                                    "type": "string",
+                                    "index":"not_analyzed",
+                                    "doc_values":true
+                                  },
+                                  "w": {
+                                    "type": "long",
+                                    "index":"not_analyzed",
+                                    "doc_values":true
+                                  }
+                                }
+                              },
+                              "small": {
+                                "properties": {
+                                  "h": {
+                                    "type": "long",
+                                    "index":"not_analyzed",
+                                    "doc_values":true
+                                  },
+                                  "resize": {
+                                    "type": "string",
+                                    "index":"not_analyzed",
+                                    "doc_values":true
+                                  },
+                                  "w": {
+                                    "type": "long",
+                                    "index":"not_analyzed",
+                                    "doc_values":true
+                                  }
+                                }
+                              },
+                              "thumb": {
+                                "properties": {
+                                  "h": {
+                                    "type": "long",
+                                    "index":"not_analyzed",
+                                    "doc_values":true
+                                  },
+                                  "resize": {
+                                    "type": "string",
+                                    "index":"not_analyzed",
+                                    "doc_values":true
+                                  },
+                                  "w": {
+                                    "type": "long",
+                                    "index":"not_analyzed",
+                                    "doc_values":true
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "source_status_id": {
+                            "type": "long",
+                            "index":"not_analyzed",
+                            "doc_values":true
+                          },
+                          "source_status_id_str": {
+                            "type": "string",
+                            "index":"not_analyzed",
+                            "doc_values":true
+                          },
+                          "type": {
+                            "type": "string",
+                            "index":"not_analyzed",
+                            "doc_values":true
+                          },
+                          "url": {
+                            "type": "string",
+                            "index":"not_analyzed",
+                            "doc_values":true
+                          }
+                        }
+                      },
+                      "urls": {
+                        "properties": {
+                          "display_url": {
+                            "type": "string",
+                            "index":"not_analyzed",
+                            "doc_values":true
+                          },
+                          "expanded_url": {
+                            "type": "string",
+                            "index":"not_analyzed",
+                            "doc_values":true
+                          },
+                          "indices": {
+                            "type": "long",
+                            "index":"not_analyzed",
+                            "doc_values":true
+                          },
+                          "url": {
+                            "type": "string",
+                            "index":"not_analyzed",
+                            "doc_values":true
+                          }
+                        }
+                      },
+                      "user_mentions": {
+                        "properties": {
+                          "id": {
+                            "type": "long",
+                            "index":"not_analyzed",
+                            "doc_values":true
+                          },
+                          "id_str": {
+                            "type": "string",
+                            "index":"not_analyzed",
+                            "doc_values":true
+                          },
+                          "indices": {
+                            "type": "long",
+                            "index":"not_analyzed",
+                            "doc_values":true
+                          },
+                          "name": {
+                            "type": "string",
+                            "index":"not_analyzed",
+                            "doc_values":true
+                          },
+                          "screen_name": {
+                            "type": "string",
+                            "index":"not_analyzed",
+                            "doc_values":true
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "extended_entities": {
+                    "properties": {
+                      "media": {
+                        "properties": {
+                          "display_url": {
+                            "type": "string",
+                            "index":"not_analyzed",
+                            "doc_values":true
+                          },
+                          "expanded_url": {
+                            "type": "string",
+                            "index":"not_analyzed",
+                            "doc_values":true
+                          },
+                          "id": {
+                            "type": "long",
+                            "index":"not_analyzed",
+                            "doc_values":true
+                          },
+                          "id_str": {
+                            "type": "string",
+                            "index":"not_analyzed",
+                            "doc_values":true
+                          },
+                          "indices": {
+                            "type": "long",
+                            "index":"not_analyzed",
+                            "doc_values":true
+                          },
+                          "media_url": {
+                            "type": "string",
+                            "index":"not_analyzed",
+                            "doc_values":true
+                          },
+                          "media_url_https": {
+                            "type": "string",
+                            "index":"not_analyzed",
+                            "doc_values":true
+                          },
+                          "sizes": {
+                            "properties": {
+                              "large": {
+                                "properties": {
+                                  "h": {
+                                    "type": "long",
+                                    "index":"not_analyzed",
+                                    "doc_values":true
+                                  },
+                                  "resize": {
+                                    "type": "string",
+                                    "index":"not_analyzed",
+                                    "doc_values":true
+                                  },
+                                  "w": {
+                                    "type": "long",
+                                    "index":"not_analyzed",
+                                    "doc_values":true
+                                  }
+                                }
+                              },
+                              "medium": {
+                                "properties": {
+                                  "h": {
+                                    "type": "long",
+                                    "index":"not_analyzed",
+                                    "doc_values":true
+                                  },
+                                  "resize": {
+                                    "type": "string",
+                                    "index":"not_analyzed",
+                                    "doc_values":true
+                                  },
+                                  "w": {
+                                    "type": "long",
+                                    "index":"not_analyzed",
+                                    "doc_values":true
+                                  }
+                                }
+                              },
+                              "small": {
+                                "properties": {
+                                  "h": {
+                                    "type": "long",
+                                    "index":"not_analyzed",
+                                    "doc_values":true
+                                  },
+                                  "resize": {
+                                    "type": "string",
+                                    "index":"not_analyzed",
+                                    "doc_values":true
+                                  },
+                                  "w": {
+                                    "type": "long",
+                                    "index":"not_analyzed",
+                                    "doc_values":true
+                                  }
+                                }
+                              },
+                              "thumb": {
+                                "properties": {
+                                  "h": {
+                                    "type": "long",
+                                    "index":"not_analyzed",
+                                    "doc_values":true
+                                  },
+                                  "resize": {
+                                    "type": "string",
+                                    "index":"not_analyzed",
+                                    "doc_values":true
+                                  },
+                                  "w": {
+                                    "type": "long",
+                                    "index":"not_analyzed",
+                                    "doc_values":true
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "source_status_id": {
+                            "type": "long",
+                            "index":"not_analyzed",
+                            "doc_values":true
+                          },
+                          "source_status_id_str": {
+                            "type": "string",
+                            "index":"not_analyzed",
+                            "doc_values":true
+                          },
+                          "type": {
+                            "type": "string",
+                            "index":"not_analyzed",
+                            "doc_values":true
+                          },
+                          "url": {
+                            "type": "string",
+                            "index":"not_analyzed",
+                            "doc_values":true
+                          },
+                          "video_info": {
+                            "properties": {
+                              "aspect_ratio": {
+                                "type": "long",
+                                "index":"not_analyzed",
+                                "doc_values":true
+                              },
+                              "duration_millis": {
+                                "type": "long",
+                                "index":"not_analyzed",
+                                "doc_values":true
+                              },
+                              "variants": {
+                                "properties": {
+                                  "bitrate": {
+                                    "type": "long",
+                                    "index":"not_analyzed",
+                                    "doc_values":true
+                                  },
+                                  "content_type": {
+                                    "type": "string",
+                                    "index":"not_analyzed",
+                                    "doc_values":true
+                                  },
+                                  "url": {
+                                    "type": "string",
+                                    "index":"not_analyzed",
+                                    "doc_values":true
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "favorite_count": {
+                    "type": "long",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "favorited": {
+                    "type": "boolean",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "filter_level": {
+                    "type": "string",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "geo": {
+                    "properties": {
+                      "coordinates": {
+                        "type": "double",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      },
+                      "type": {
+                        "type": "string",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      }
+                    }
+                  },
+                  "id": {
+                    "type": "long",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "id_str": {
+                    "type": "string",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "in_reply_to_screen_name": {
+                    "type": "string",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "in_reply_to_status_id": {
+                    "type": "long",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "in_reply_to_status_id_str": {
+                    "type": "string",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "in_reply_to_user_id": {
+                    "type": "long",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "in_reply_to_user_id_str": {
+                    "type": "string",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "lang": {
+                    "type": "string",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "possibly_sensitive": {
+                    "type": "boolean",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "quoted_status_id": {
+                    "type": "long",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "quoted_status_id_str": {
+                    "type": "string",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "retweet_count": {
+                    "type": "long",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "retweeted": {
+                    "type": "boolean",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "scopes": {
+                    "properties": {
+                      "followers": {
+                        "type": "boolean",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      }
+                    }
+                  },
+                  "source": {
+                    "type": "string",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "text": {
+                    "type": "string"
+                  },
+                  "truncated": {
+                    "type": "boolean",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "user": {
+                    "properties": {
+                      "contributors_enabled": {
+                        "type": "boolean",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      },
+                      "created_at": {
+                        "type": "date",
+                        "format": "EEE MMM dd HH:mm:ss Z yyyy",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      },
+                      "default_profile": {
+                        "type": "boolean",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      },
+                      "default_profile_image": {
+                        "type": "boolean",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      },
+                      "description": {
+                        "type": "string",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      },
+                      "favourites_count": {
+                        "type": "long",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      },
+                      "followers_count": {
+                        "type": "long",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      },
+                      "friends_count": {
+                        "type": "long",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      },
+                      "geo_enabled": {
+                        "type": "boolean",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      },
+                      "id": {
+                        "type": "long",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      },
+                      "id_str": {
+                        "type": "string",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      },
+                      "is_translator": {
+                        "type": "boolean",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      },
+                      "lang": {
+                        "type": "string",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      },
+                      "listed_count": {
+                        "type": "long",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      },
+                      "location": {
+                        "type": "string",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      },
+                      "name": {
+                        "type": "string",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      },
+                      "profile_background_color": {
+                        "type": "string",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      },
+                      "profile_background_image_url": {
+                        "type": "string",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      },
+                      "profile_background_image_url_https": {
+                        "type": "string",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      },
+                      "profile_background_tile": {
+                        "type": "boolean",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      },
+                      "profile_banner_url": {
+                        "type": "string",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      },
+                      "profile_image_url": {
+                        "type": "string",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      },
+                      "profile_image_url_https": {
+                        "type": "string",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      },
+                      "profile_link_color": {
+                        "type": "string",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      },
+                      "profile_sidebar_border_color": {
+                        "type": "string",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      },
+                      "profile_sidebar_fill_color": {
+                        "type": "string",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      },
+                      "profile_text_color": {
+                        "type": "string",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      },
+                      "profile_use_background_image": {
+                        "type": "boolean",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      },
+                      "protected": {
+                        "type": "boolean",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      },
+                      "screen_name": {
+                        "type": "string",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      },
+                      "statuses_count": {
+                        "type": "long",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      },
+                      "time_zone": {
+                        "type": "string",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      },
+                      "url": {
+                        "type": "string",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      },
+                      "utc_offset": {
+                        "type": "long",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      },
+                      "verified": {
+                        "type": "boolean",
+                        "index":"not_analyzed",
+                        "doc_values":true
+                      }
+                    }
+                  }
+                }
+              },
+              "quoted_status_id": {
+                "type": "long",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "quoted_status_id_str": {
+                "type": "string",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "retweet_count": {
+                "type": "long",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "retweeted": {
+                "type": "boolean",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "scopes": {
+                "properties": {
+                  "followers": {
+                    "type": "boolean",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "place_ids": {
+                    "type": "string",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  }
+                }
+              },
+              "source": {
+                "type": "string",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "text": {
+                "type": "string"
+              },
+              "truncated": {
+                "type": "boolean",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "user": {
+                "properties": {
+                  "contributors_enabled": {
+                    "type": "boolean",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "created_at": {
+                    "type": "date",
+                    "format": "EEE MMM dd HH:mm:ss Z yyyy",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "default_profile": {
+                    "type": "boolean",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "default_profile_image": {
+                    "type": "boolean",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "description": {
+                    "type": "string",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "favourites_count": {
+                    "type": "long",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "followers_count": {
+                    "type": "long",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "friends_count": {
+                    "type": "long",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "geo_enabled": {
+                    "type": "boolean",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "id": {
+                    "type": "long",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "id_str": {
+                    "type": "string",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "is_translator": {
+                    "type": "boolean",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "lang": {
+                    "type": "string",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "listed_count": {
+                    "type": "long",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "location": {
+                    "type": "string",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "name": {
+                    "type": "string",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "profile_background_color": {
+                    "type": "string",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "profile_background_image_url": {
+                    "type": "string",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "profile_background_image_url_https": {
+                    "type": "string",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "profile_background_tile": {
+                    "type": "boolean",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "profile_banner_url": {
+                    "type": "string",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "profile_image_url": {
+                    "type": "string",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "profile_image_url_https": {
+                    "type": "string",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "profile_link_color": {
+                    "type": "string",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "profile_sidebar_border_color": {
+                    "type": "string",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "profile_sidebar_fill_color": {
+                    "type": "string",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "profile_text_color": {
+                    "type": "string",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "profile_use_background_image": {
+                    "type": "boolean",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "protected": {
+                    "type": "boolean",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "screen_name": {
+                    "type": "string",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "statuses_count": {
+                    "type": "long",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "time_zone": {
+                    "type": "string",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "url": {
+                    "type": "string",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "utc_offset": {
+                    "type": "long",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "verified": {
+                    "type": "boolean",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  }
+                }
+              }
+            }
+          },
+          "source": {
+            "type": "string",
+            "index":"not_analyzed",
+            "doc_values":true
+          },
+          "text": {
+            "type": "string"
+          },
+          "timestamp_ms": {
+            "type": "date",
+            "index":"not_analyzed",
+            "doc_values":true
+          },
+          "truncated": {
+            "type": "boolean",
+            "index":"not_analyzed",
+            "doc_values":true
+          },
+          "user": {
+            "properties": {
+              "contributors_enabled": {
+                "type": "boolean",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "created_at": {
+                "type": "date",
+                "format": "EEE MMM dd HH:mm:ss Z yyyy",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "default_profile": {
+                "type": "boolean",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "default_profile_image": {
+                "type": "boolean",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "description": {
+                "type": "string",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "favourites_count": {
+                "type": "long",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "followers_count": {
+                "type": "long",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "friends_count": {
+                "type": "long",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "geo_enabled": {
+                "type": "boolean",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "id": {
+                "type": "long",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "id_str": {
+                "type": "string",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "is_translator": {
+                "type": "boolean",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "lang": {
+                "type": "string",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "listed_count": {
+                "type": "long",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "location": {
+                "type": "string",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "name": {
+                "type": "string",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "profile_background_color": {
+                "type": "string",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "profile_background_image_url": {
+                "type": "string",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "profile_background_image_url_https": {
+                "type": "string",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "profile_background_tile": {
+                "type": "boolean",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "profile_banner_url": {
+                "type": "string",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "profile_image_url": {
+                "type": "string",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "profile_image_url_https": {
+                "type": "string",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "profile_link_color": {
+                "type": "string",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "profile_sidebar_border_color": {
+                "type": "string",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "profile_sidebar_fill_color": {
+                "type": "string",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "profile_text_color": {
+                "type": "string",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "profile_use_background_image": {
+                "type": "boolean",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "protected": {
+                "type": "boolean",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "screen_name": {
+                "type": "string",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "statuses_count": {
+                "type": "long",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "time_zone": {
+                "type": "string",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "url": {
+                "type": "string",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "utc_offset": {
+                "type": "long",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "verified": {
+                "type": "boolean",
+                "index":"not_analyzed",
+                "doc_values":true
+              }
+            }
+          }
+        }
+      },
+      "reply_to_handle": {
+        "type": "string",
+        "index":"not_analyzed",
+        "doc_values":true
+      },
+      "reply_to_id": {
+        "type": "string",
+        "index":"not_analyzed",
+        "doc_values":true
+      },
+      "reply_to_tweet_id": {
+        "type": "string",
+        "index":"not_analyzed",
+        "doc_values":true
+      },
+      "retweet": {
+        "properties": {
+          "date": {
+            "type": "date",
+            "format": "dateOptionalTime",
+            "index":"not_analyzed",
+            "doc_values":true
+          },
+          "favorite_count": {
+            "type": "long",
+            "index":"not_analyzed",
+            "doc_values":true
+          },
+          "followers_count": {
+            "type": "long",
+            "index":"not_analyzed",
+            "doc_values":true
+          },
+          "friends_count": {
+            "type": "long",
+            "index":"not_analyzed",
+            "doc_values":true
+          },
+          "hashtag_entities": {
+            "properties": {
+              "indices": {
+                "properties": {
+                  "begin": {
+                    "type": "long",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "end": {
+                    "type": "long",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  }
+                }
+              },
+              "text": {
+                "type": "string",
+                "index":"not_analyzed",
+                "doc_values":true
+              }
+            }
+          },
+          "language": {
+            "type": "string",
+            "index":"not_analyzed",
+            "doc_values":true
+          },
+          "media": {
+            "properties": {
+              "display_url": {
+                "type": "string",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "id": {
+                "type": "long",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "indices": {
+                "properties": {
+                  "begin": {
+                    "type": "long",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "end": {
+                    "type": "long",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  }
+                }
+              },
+              "media_url": {
+                "type": "string",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "type": {
+                "type": "string",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "url": {
+                "type": "string",
+                "index":"not_analyzed",
+                "doc_values":true
+              }
+            }
+          },
+          "mention_entities": {
+            "properties": {
+              "id": {
+                "type": "long",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "indices": {
+                "properties": {
+                  "begin": {
+                    "type": "long",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "end": {
+                    "type": "long",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  }
+                }
+              },
+              "name": {
+                "type": "string",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "screen_name": {
+                "type": "string",
+                "index":"not_analyzed",
+                "doc_values":true
+              }
+            }
+          },
+          "place_country_code": {
+            "type": "string",
+            "index":"not_analyzed",
+            "doc_values":true
+          },
+          "place_name": {
+            "type": "string",
+            "index":"not_analyzed",
+            "doc_values":true
+          },
+          "possibly_sensitive": {
+            "type": "boolean",
+            "index":"not_analyzed",
+            "doc_values":true
+          },
+          "reply_to_handle": {
+            "type": "string",
+            "index":"not_analyzed",
+            "doc_values":true
+          },
+          "reply_to_id": {
+            "type": "string",
+            "index":"not_analyzed",
+            "doc_values":true
+          },
+          "reply_to_tweet_id": {
+            "type": "string",
+            "index":"not_analyzed",
+            "doc_values":true
+          },
+          "retweet_count": {
+            "type": "long",
+            "index":"not_analyzed",
+            "doc_values":true
+          },
+          "source": {
+            "type": "string",
+            "index":"not_analyzed",
+            "doc_values":true
+          },
+          "source_id": {
+            "type": "string",
+            "index":"not_analyzed",
+            "doc_values":true
+          },
+          "symbols": {
+            "properties": {
+              "indices": {
+                "properties": {
+                  "begin": {
+                    "type": "long",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "end": {
+                    "type": "long",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  }
+                }
+              },
+              "text": {
+                "type": "string",
+                "index":"not_analyzed",
+                "doc_values":true
+              }
+            }
+          },
+          "text": {
+            "type": "string"
+          },
+          "urls": {
+            "properties": {
+              "display_url": {
+                "type": "string",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "domain": {
+                "type": "string",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "expanded_url": {
+                "type": "string",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "indices": {
+                "properties": {
+                  "begin": {
+                    "type": "long",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  },
+                  "end": {
+                    "type": "long",
+                    "index":"not_analyzed",
+                    "doc_values":true
+                  }
+                }
+              },
+              "is_short_url": {
+                "type": "boolean",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "url": {
+                "type": "string",
+                "index":"not_analyzed",
+                "doc_values":true
+              }
+            }
+          },
+          "user": {
+            "properties": {
+              "created_at": {
+                "type": "date",
+                "format": "dateOptionalTime",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "description": {
+                "type": "string",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "favourites_count": {
+                "type": "long",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "followers_count": {
+                "type": "long",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "friends_count": {
+                "type": "long",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "has_profile_image": {
+                "type": "boolean",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "id": {
+                "type": "string",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "is_default_profile": {
+                "type": "boolean",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "is_protected": {
+                "type": "boolean",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "is_verified": {
+                "type": "boolean",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "language": {
+                "type": "string",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "listed_count": {
+                "type": "long",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "location": {
+                "type": "string",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "name": {
+                "type": "string",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "screen_name": {
+                "type": "string",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "statuses_count": {
+                "type": "long",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "url": {
+                "type": "string",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "user_avatar": {
+                "type": "string",
+                "index":"not_analyzed",
+                "doc_values":true
+              }
+            }
+          },
+          "user_handle": {
+            "type": "string",
+            "index":"not_analyzed",
+            "doc_values":true
+          },
+          "user_id": {
+            "type": "string",
+            "index":"not_analyzed",
+            "doc_values":true
+          }
+        }
+      },
+      "retweet_count": {
+        "type": "long",
+        "index":"not_analyzed",
+        "doc_values":true
+      },
+      "source": {
+        "type": "string",
+        "index":"not_analyzed",
+        "doc_values":true
+      },
+      "source_id": {
+        "type": "string",
+        "index":"not_analyzed",
+        "doc_values":true
+      },
+      "symbols": {
+        "properties": {
+          "indices": {
+            "properties": {
+              "begin": {
+                "type": "long",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "end": {
+                "type": "long",
+                "index":"not_analyzed",
+                "doc_values":true
+              }
+            }
+          },
+          "text": {
+            "type": "string",
+            "index":"not_analyzed",
+            "doc_values":true
+          }
+        }
+      },
+      "text": {
+        "type": "string"
+      },
+      "urls": {
+        "properties": {
+          "display_url": {
+            "type": "string",
+            "index":"not_analyzed",
+            "doc_values":true
+          },
+          "domain": {
+            "type": "string",
+            "index":"not_analyzed",
+            "doc_values":true
+          },
+          "expanded_url": {
+            "type": "string",
+            "index":"not_analyzed",
+            "doc_values":true
+          },
+          "indices": {
+            "properties": {
+              "begin": {
+                "type": "long",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "end": {
+                "type": "long",
+                "index":"not_analyzed",
+                "doc_values":true
+              }
+            }
+          },
+          "is_short_url": {
+            "type": "boolean",
+            "index":"not_analyzed",
+            "doc_values":true
+          },
+          "url": {
+            "type": "string",
+            "index":"not_analyzed",
+            "doc_values":true
+          }
+        }
+      },
+      "user": {
+        "properties": {
+          "created_at": {
+            "type": "date",
+            "format": "dateOptionalTime",
+            "index":"not_analyzed",
+            "doc_values":true
+          },
+          "description": {
+            "type": "string",
+            "index":"not_analyzed",
+            "doc_values":true
+          },
+          "favourites_count": {
+            "type": "long",
+            "index":"not_analyzed",
+            "doc_values":true
+          },
+          "followers_count": {
+            "type": "long",
+            "index":"not_analyzed",
+            "doc_values":true
+          },
+          "friends_count": {
+            "type": "long",
+            "index":"not_analyzed",
+            "doc_values":true
+          },
+          "has_profile_image": {
+            "type": "boolean",
+            "index":"not_analyzed",
+            "doc_values":true
+          },
+          "id": {
+            "type": "string",
+            "index":"not_analyzed",
+            "doc_values":true
+          },
+          "is_default_profile": {
+            "type": "boolean",
+            "index":"not_analyzed",
+            "doc_values":true
+          },
+          "is_protected": {
+            "type": "boolean",
+            "index":"not_analyzed",
+            "doc_values":true
+          },
+          "is_verified": {
+            "type": "boolean",
+            "index":"not_analyzed",
+            "doc_values":true
+          },
+          "language": {
+            "type": "string",
+            "index":"not_analyzed",
+            "doc_values":true
+          },
+          "listed_count": {
+            "type": "long",
+            "index":"not_analyzed",
+            "doc_values":true
+          },
+          "location": {
+            "type": "string",
+            "index":"not_analyzed",
+            "doc_values":true
+          },
+          "name": {
+            "type": "string",
+            "index":"not_analyzed",
+            "doc_values":true
+          },
+          "screen_name": {
+            "type": "string",
+            "index":"not_analyzed",
+            "doc_values":true
+          },
+          "statuses_count": {
+            "type": "long",
+            "index":"not_analyzed",
+            "doc_values":true
+          },
+          "url": {
+            "type": "string",
+            "index":"not_analyzed",
+            "doc_values":true
+          },
+          "user_avatar": {
+            "type": "string",
+            "index":"not_analyzed",
+            "doc_values":true
+          }
+        }
+      },
+      "user_handle": {
+        "type": "string",
+        "index":"not_analyzed",
+        "doc_values":true
+      },
+      "user_id": {
+        "type": "string",
+        "index":"not_analyzed",
+        "doc_values":true
+      }
+    },
+    "_ttl": {"enabled":"true","default":"65m"},
+    "_all": {
+      "enabled": false
+    }
+  }
+}
