@@ -8,6 +8,7 @@ import org.json4s.native.Serialization._
 
 /**
   * Created by therapy2 on 1/24/16.
+  * Main class for stream project.
   */
 
 object Main {
