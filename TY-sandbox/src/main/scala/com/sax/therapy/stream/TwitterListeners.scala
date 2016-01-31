@@ -18,11 +18,16 @@ object TwitterListeners {
   val esActor = system.actorOf(Props[Client], "ESClientActor")
   def rawMessageListener = new RawStreamListener {
     override def onMessage(s: String): Unit = {
-      if(s.substring(0, 8) == "{\"delete")
-        esActor ! DeleteTweet(toRemove(s))
+      if(s.substring(0, 8) == "{\"delete") {
+        val remove = toRemove(s)
+        logger.debug("Now deleting tweet_id: " + remove.delete.status.id)
+        esActor ! DeleteTweet(remove)
+      }
       else {
         val tweet = toTweet(s)
+        logger.debug("Now inserting tweet_id: " + tweet.id)
         esActor ! InsertTweet(tweet)
+        logger.debug("Now inserting user_id: " + tweet.user.id)
         esActor ! InsertUser(tweet.user)
       }
     }

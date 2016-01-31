@@ -2,6 +2,9 @@ package com.sax.therapy.models.raw
 
 import com.sax.therapy.enrich.util.Converter
 import com.sax.therapy.models.enriched.{User => EnrichedUser}
+import org.json4s.DefaultFormats
+import org.json4s.ext.DateParser
+import java.util.Date
 
 /**
   * Created by therapy2 on 1/29/16.

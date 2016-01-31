@@ -1,6 +1,6 @@
 package com.sax.therapy.stream
 
-import com.sax.therapy.models.raw.{Remove, Tweet, User}
+import com.sax.therapy.models.raw._
 import org.json4s.DefaultFormats
 import org.json4s.native.Serialization.{read, write}
 

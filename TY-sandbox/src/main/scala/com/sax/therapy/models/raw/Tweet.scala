@@ -1,9 +1,11 @@
 package com.sax.therapy.models.raw
 
-import java.text.SimpleDateFormat
-import java.util.{Locale, Date}
 import com.sax.therapy.enrich.util.Converter
 import com.sax.therapy.models.enriched.{Tweet => EnrichedTweet}
+import org.json4s._
+import org.json4s.ext.DateParser
+import org.json4s.DateFormat
+import java.util.Date
 
 /**
   * Created by therapy2 on 1/29/16.
@@ -67,7 +69,10 @@ case class Tweet(
       reply_to_handle = in_reply_to_screen_name,
       reply_to_id = in_reply_to_user_id_str,
       reply_to_tweet_id = in_reply_to_status_id_str,
-      retweet = retweeted_status,
+      retweet = retweeted_status match {
+        case Some(s) => Some(s.enrich)
+        case None => None
+      },
       retweet_count = retweet_count,
       source = source,
       source_id = id_str,

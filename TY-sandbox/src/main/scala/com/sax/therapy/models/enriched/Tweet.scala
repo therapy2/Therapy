@@ -26,7 +26,7 @@ case class Tweet(
                   reply_to_handle: Option[String],
                   reply_to_id: Option[String],
                   reply_to_tweet_id: Option[String],
-                  retweet: Option[RawTweet],
+                  retweet: Option[Tweet],
                   retweet_count: Long,
                   source: String,
                   source_id: String,

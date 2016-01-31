@@ -9,5 +9,6 @@ import java.util.Locale
 package object raw {
   val LAT_LIMIT = 90.0
   val LONG_LIMIT = 180.0
-  val twitterDateFormat = new SimpleDateFormat("eee MMM dd HH:mm:ss ZZZZ yyyy", Locale.ENGLISH)
+  val twitterDateFormat = new SimpleDateFormat("EEE MMM dd HH:mm:ss +0000 yyyy", Locale.ENGLISH)
+  val esDateFormat = new SimpleDateFormat("EEE MMM dd HH:mm:ss +0000 yyyy", Locale.ENGLISH)
 }
