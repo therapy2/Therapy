@@ -1,9 +1,11 @@
 package com.sax.therapy.stream
 
 import Marshaller._
+import com.sax.therapy.es.{InsertUser, DeleteTweet, InsertTweet, Client}
 import com.sax.therapy.models.raw.{Tweet, Remove, RawObject}
 import twitter4j._
 import com.sax.therapy.models.enriched.{Place => EnrichedPlace}
+import akka.actor.{Props, ActorSystem}
 
 
 /**
@@ -12,13 +14,17 @@ import com.sax.therapy.models.enriched.{Place => EnrichedPlace}
   */
 object TwitterListeners {
   val logger = Logger.getLogger(TwitterListeners.getClass)
+  val system = ActorSystem("ESActorSystem")
+  val esActor = system.actorOf(Props[Client], "ESClientActor")
   def rawMessageListener = new RawStreamListener {
     override def onMessage(s: String): Unit = {
-      //TODO: implement storage
       if(s.substring(0, 8) == "{\"delete")
-        println(toRemove(s))
-      else
-        println(toEnrichedTweetJson(toTweet(s)))
+        esActor ! DeleteTweet(toRemove(s))
+      else {
+        val tweet = toTweet(s)
+        esActor ! InsertTweet(tweet)
+        esActor ! InsertUser(tweet.user)
+      }
     }
     override def onException(ex: Exception): Unit = { logger.error("Unable to listen to messages " + ex ) }
   }
