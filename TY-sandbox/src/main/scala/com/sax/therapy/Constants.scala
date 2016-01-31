@@ -14,7 +14,7 @@ object Constants {
 
   //ElasticSearch configuration params
   //FIXME: based on the runtime environment, configuration has to change
-  val esConfName = "es/es-local.conf"
+  val esConfName = "es/es-remote.conf"
   val clusterField = "es.tweet.cluster"
   val hostField = "es.tweet.host"
   val portField = "es.tweet.port"

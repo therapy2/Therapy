@@ -1,7 +1,7 @@
 package com.sax.therapy.stream
 
 import Marshaller._
-import com.sax.therapy.es.{InsertUser, DeleteTweet, InsertTweet, Client}
+import com.sax.therapy.es._
 import com.sax.therapy.models.raw.{Tweet, Remove, RawObject}
 import twitter4j._
 import com.sax.therapy.models.enriched.{Place => EnrichedPlace}
@@ -15,7 +15,7 @@ import akka.actor.{Props, ActorSystem}
 object TwitterListeners {
   val logger = Logger.getLogger(TwitterListeners.getClass)
   val system = ActorSystem("ESActorSystem")
-  val esActor = system.actorOf(Props[Client], "ESClientActor")
+  val esActor = system.actorOf(Props[RestClient], "ESClientActor")
   def rawMessageListener = new RawStreamListener {
     override def onMessage(s: String): Unit = {
       if(s.substring(0, 8) == "{\"delete") {

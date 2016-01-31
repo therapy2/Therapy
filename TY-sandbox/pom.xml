@@ -49,6 +49,11 @@
             <artifactId>elasticsearch</artifactId>
             <version>${elastic.version}</version>
         </dependency>
+        <dependency>
+            <groupId>io.searchbox</groupId>
+            <artifactId>jest</artifactId>
+            <version>${jest.version}</version>
+        </dependency>
 
     </dependencies>
 </project>

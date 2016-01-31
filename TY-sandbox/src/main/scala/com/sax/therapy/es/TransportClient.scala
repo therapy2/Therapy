@@ -21,10 +21,10 @@ import com.sax.therapy.models.enriched.{Tweet => EnrichedTweet, User => Enriched
 
 /**
   * Created by therapy2 on 1/30/16.
-  * Main client for ES connection.
+  * Main transport client for ES connection.
   */
-class Client extends Actor {
-  private val logger: Logger = LoggerFactory.getLogger(classOf[Client])
+class TransportClient extends Actor {
+  private val logger: Logger = LoggerFactory.getLogger(classOf[TransportClient])
   private val settings = Settings.settingsBuilder().put(clusterName, clusterVal).build()
   private val esClient = TransportClient.builder().settings(settings).build()
 
