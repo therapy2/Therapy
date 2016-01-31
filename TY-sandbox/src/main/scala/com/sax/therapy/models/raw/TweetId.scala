@@ -6,4 +6,4 @@ package com.sax.therapy.models.raw
 case class TweetId(
                   id: Long,
                   id_str: String
-                  ) extends SocialObject
+                  ) extends RawObject

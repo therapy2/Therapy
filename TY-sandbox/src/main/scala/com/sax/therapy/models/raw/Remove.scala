@@ -5,4 +5,4 @@ package com.sax.therapy.models.raw
   */
 case class Remove(
                  delete: Delete
-                 ) extends SocialObject
+                 ) extends RawObject

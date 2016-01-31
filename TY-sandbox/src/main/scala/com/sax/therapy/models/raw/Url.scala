@@ -8,4 +8,4 @@ case class Url(
               expanded_url: String,
               indices: Seq[Int],
               url: String
-              ) extends SocialObject
+              ) extends RawObject

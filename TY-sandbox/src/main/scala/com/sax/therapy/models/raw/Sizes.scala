@@ -8,4 +8,4 @@ case class Sizes(
                 large: Size,
                 medium: Size,
                 small: Size
-                ) extends SocialObject
+                ) extends RawObject

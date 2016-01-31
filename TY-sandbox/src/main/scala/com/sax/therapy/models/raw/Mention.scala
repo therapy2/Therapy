@@ -9,4 +9,4 @@ case class Mention(
                   indices: Seq[Int],
                   name: String,
                   screen_name: String
-                  ) extends SocialObject
+                  ) extends RawObject

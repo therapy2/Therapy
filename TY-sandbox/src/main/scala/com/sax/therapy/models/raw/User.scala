@@ -1,6 +1,7 @@
 package com.sax.therapy.models.raw
 
-import java.util.Date
+import com.sax.therapy.enrich.util.Converter
+import com.sax.therapy.models.enriched.{User => EnrichedUser}
 
 /**
   * Created by therapy2 on 1/29/16.
@@ -30,7 +31,7 @@ case class User(
                  listed_count: Int,
                  location: Option[String] = None,
                  muting: Boolean = false,
-                 name: String,
+                 name: Option[String],
                  notifications: Boolean = false,
                  profile_background_color: String,
                  profile_background_image_url: String,
@@ -55,4 +56,33 @@ case class User(
                  verified: Boolean = false,
                  withheld_in_countries: Option[String] = None,
                  withheld_scope: Option[String] = None
-               ) extends SocialObject
+               ) extends RawObject
+{
+  val enrich: EnrichedUser = {
+    new EnrichedUser(
+      created_at = twitterDateFormat.parse(created_at),
+      contributors_enabled = contributors_enabled,
+      description = description,
+      favourites_count = favourites_count,
+      followers_count = followers_count,
+      friends_count = friends_count,
+      geo_enabled = geo_enabled,
+      has_profile_image = !default_profile_image,
+      id_long = id,
+      id_str = id_str,
+      is_default_profile = default_profile,
+      is_protected = `protected`,
+      is_translator = is_translation_enabled,
+      is_verified = verified,
+      language = lang,
+      listed_count = listed_count,
+      name = name,
+      screen_name = screen_name,
+      statuses_count = statuses_count,
+      url = url,
+      user_avatar = profile_image_url,
+      user_has_expertise = Converter.toExpertise,
+      utc_offset = utc_offset
+    )
+  }
+}

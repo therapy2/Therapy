@@ -7,12 +7,14 @@
         "doc_values":true
       },
       "created_at": {
-        "type": "dateOptionalTime",
+        "type": "date",
+        "format": "dateOptionalTime",
         "index":"not_analyzed",
         "doc_values":true
       },
       "merged_at": {
-        "type": "dateOptionalTime",
+        "type": "date",
+        "format": "dateOptionalTime",
         "index":"not_analyzed",
         "doc_values":true
       },
@@ -47,7 +49,27 @@
             "type": "double",
             "index":"not_analyzed",
             "doc_values":true
-          }         
+          },
+          "sentiment": {
+            "type": "double",
+            "index":"not_analyzed",
+            "doc_values":true
+          },
+          "stance": {
+            "type": "double",
+            "index":"not_analyzed",
+            "doc_values":true
+          },
+          "belief": {
+            "type": "double",
+            "index":"not_analyzed",
+            "doc_values":true
+          },
+          "risk": {
+            "type": "double",
+            "index":"not_analyzed",
+            "doc_values":true
+          }           
         }
       },
       "tweets": {
@@ -61,11 +83,16 @@
       },
       "people": {
         "properties": {
-          "token":{
+          "id": {
             "type": "string",
             "index":"not_analyzed",
             "doc_values":true
-          }       
+          },
+          "token": {
+            "type": "string",
+            "index":"not_analyzed",
+            "doc_values":true
+          }
         }
       },
       "places": {
@@ -76,7 +103,7 @@
             "doc_values":true
           },
           "token": {
-            "name": "string",
+            "type": "string",
             "index":"not_analyzed",
             "doc_values":true
           }
@@ -84,12 +111,12 @@
       },
       "orgs": {
         "properties": {
-          "token": {
+          "id": {
             "type": "string",
             "index":"not_analyzed",
             "doc_values":true
           },
-          "ticker": {
+          "token": {
             "type": "string",
             "index":"not_analyzed",
             "doc_values":true
@@ -98,6 +125,11 @@
       },
       "hashtags": {
         "properties": {
+          "id": {
+            "type": "string",
+            "index":"not_analyzed",
+            "doc_values":true
+          },
           "token": {
             "type": "string",
             "index":"not_analyzed",
@@ -116,6 +148,11 @@
       },
       "urls": {
         "properties": {
+          "id": {
+            "type": "string",
+            "index":"not_analyzed",
+            "doc_values":true
+          },
           "token": {
             "type": "string",
             "index":"not_analyzed",
@@ -135,7 +172,8 @@
             }
           },
           "merged_at": {
-            "type": "dateOptionalTime",
+          "type": "date",
+          "format": "dateOptionalTime",
             "index":"not_analyzed",
             "doc_values":true 
           }
@@ -144,7 +182,8 @@
       "verification_history": {
         "properties": {
           "date": {
-            "type": "dateOptionalTime",
+            "type": "date",
+            "format": "dateOptionalTime",
             "index":"not_analyzed",
             "doc_values":true 
           },

@@ -6,4 +6,4 @@ package com.sax.therapy.models.raw
 case class Hashtag(
                   indices: Seq[Int],
                   text: String
-                  ) extends SocialObject
+                  ) extends RawObject

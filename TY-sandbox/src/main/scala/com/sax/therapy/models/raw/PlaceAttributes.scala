@@ -13,4 +13,4 @@ case class PlaceAttributes(
                           twitter: Option[String] = None,
                           url: Option[String] = None,
                           `app:id`: Option[String] = None
-                          ) extends SocialObject
+                          ) extends RawObject

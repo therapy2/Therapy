@@ -7,5 +7,10 @@ case class Entities(
                     hashtags: Seq[Hashtag] = Seq.empty,
                     media: Seq[Media] = Seq.empty,
                     urls: Seq[Url] = Seq.empty,
-                    user_mentions: Seq[Mention] = Seq.empty
-                 ) extends SocialObject
+                    user_mentions: Seq[Mention] = Seq.empty,
+                    symbols: Seq[Symbol] = Seq.empty
+                 ) extends RawObject
+
+object Entities {
+  val empty = new Entities()
+}

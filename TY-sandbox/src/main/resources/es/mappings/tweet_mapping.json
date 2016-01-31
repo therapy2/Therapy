@@ -6,7 +6,7 @@
         "index":"not_analyzed",
         "doc_values":true
       },
-      "date": {
+      "created_at": {
         "type": "date",
         "format": "dateOptionalTime",
         "index":"not_analyzed",
@@ -148,20 +148,6 @@
             "index":"not_analyzed",
             "doc_values":true
           },
-          "user_has_expertise": {
-            "properties": {
-              "validation": {
-                "type": "boolean",
-                "index":"not_analyzed",
-                "doc_values":true
-              },
-              "categories": {
-                "type": "string",
-                "index":"not_analyzed",
-                "doc_values":true
-              }
-            }
-          },
           "fact_opinion": {
             "properties": {
               "class": {
@@ -176,13 +162,28 @@
               }
             }
           },
+          "sentiment": {
+            "type": "string",
+            "index":"not_analyzed",
+            "doc_values":true
+          },
+          "stance": {
+            "type": "string",
+            "index":"not_analyzed",
+            "doc_values":true
+          }, 
+          "belief": {
+            "type": "string",
+            "index":"not_analyzed",
+            "doc_values":true
+          }, 
           "spam_category": {
             "type": "string",
             "index":"not_analyzed",
             "doc_values":true
           },
-          "threat_score": {
-            "type": "double",
+          "risk_category": {
+            "type": "string",
             "index":"not_analyzed",
             "doc_values":true
           },
@@ -193,7 +194,7 @@
                 "index":"not_analyzed",
                 "doc_values":true
               },
-              "ENTITY": {
+              "NAMEDENTITY": {
                 "properties": {
                   "PERSON": {
                     "type": "string",
@@ -255,7 +256,7 @@
         "type": "string",
         "index":"not_analyzed",
         "doc_values":true
-      },
+      }, 
       "place_name": {
         "type": "string",
         "index":"not_analyzed",
@@ -760,9 +761,7 @@
           "place": {
             "properties": {
               "attributes": {
-                "type": "object",
-                "index":"not_analyzed",
-                "doc_values":true
+                "type": "object"
               },
               "bounding_box": {
                 "properties": {
@@ -2015,9 +2014,7 @@
               "place": {
                 "properties": {
                   "attributes": {
-                    "type": "object",
-                    "index":"not_analyzed",
-                    "doc_values":true
+                    "type": "object"
                   },
                   "bounding_box": {
                     "properties": {
@@ -3665,6 +3662,11 @@
             "index":"not_analyzed",
             "doc_values":true
           },
+          "contributors_enabled": {
+            "type": "boolean",
+            "index":"not_analyzed",
+            "doc_values":true
+          },
           "description": {
             "type": "string",
             "index":"not_analyzed",
@@ -3685,12 +3687,22 @@
             "index":"not_analyzed",
             "doc_values":true
           },
+          "geo_enabled": {
+            "type": "boolean",
+            "index":"not_analyzed",
+            "doc_values":true
+          },
           "has_profile_image": {
             "type": "boolean",
             "index":"not_analyzed",
             "doc_values":true
           },
-          "id": {
+          "id_long": {
+            "type": "long",
+            "index":"not_analyzed",
+            "doc_values":true
+          },
+          "id_str": {
             "type": "string",
             "index":"not_analyzed",
             "doc_values":true
@@ -3701,6 +3713,11 @@
             "doc_values":true
           },
           "is_protected": {
+            "type": "boolean",
+            "index":"not_analyzed",
+            "doc_values":true
+          },
+          "is_translator": {
             "type": "boolean",
             "index":"not_analyzed",
             "doc_values":true
@@ -3740,6 +3757,11 @@
             "index":"not_analyzed",
             "doc_values":true
           },
+          "time_zone": {
+            "type": "string",
+            "index":"not_analyzed",
+            "doc_values":true
+          },
           "url": {
             "type": "string",
             "index":"not_analyzed",
@@ -3747,6 +3769,25 @@
           },
           "user_avatar": {
             "type": "string",
+            "index":"not_analyzed",
+            "doc_values":true
+          },
+          "user_has_expertise": {
+            "properties": {
+              "validation": {
+                "type": "boolean",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "categories": {
+                "type": "string",
+                "index":"not_analyzed",
+                "doc_values":true
+              }
+            }
+          },
+          "utc_offset": {
+            "type": "long",
             "index":"not_analyzed",
             "doc_values":true
           }

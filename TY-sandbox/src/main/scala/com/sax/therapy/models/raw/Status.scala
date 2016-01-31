@@ -8,4 +8,4 @@ case class Status(
                  id_str: String,
                  user_id: Long,
                  user_id_str: String
-                 ) extends SocialObject
+                 ) extends RawObject

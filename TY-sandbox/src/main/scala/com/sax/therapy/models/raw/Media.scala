@@ -16,4 +16,4 @@ case class Media(
                 source_status_id_str: String,
                 `type`: String,
                 url: String
-                ) extends SocialObject
+                ) extends RawObject

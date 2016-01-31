@@ -6,4 +6,4 @@ package com.sax.therapy.models.raw
 case class Delete(
                 status: Status,
                 timestamp_ms: String
-                 ) extends SocialObject
+                 ) extends RawObject

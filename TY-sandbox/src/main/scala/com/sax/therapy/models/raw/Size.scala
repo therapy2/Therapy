@@ -7,4 +7,4 @@ case class Size(
                h: Int,
                resize: String,
                w: Int
-               ) extends SocialObject
+               ) extends RawObject

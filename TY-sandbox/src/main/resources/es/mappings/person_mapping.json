@@ -1,7 +1,13 @@
 {
   "person": {
     "properties": {
-      "name": {
+      "created_at": {
+        "type": "date",
+        "format": "dateOptionalTime",
+        "index":"not_analyzed",
+        "doc_values":true
+      },
+      "full_name": {
         "properties": {
           "first": {
             "type": "string",
@@ -25,7 +31,7 @@
           }
         }
       },
-      "org": {
+      "orgs": {
         "properties": {
           "name": {
             "type": "string",
@@ -37,7 +43,7 @@
             "index":"not_analyzed",
             "doc_values":true
           },
-          "industry": {
+          "industries": {
             "type": "string",
             "index":"not_analyzed",
             "doc_values":true
@@ -50,7 +56,7 @@
                 "doc_values":true
               },
               "name": {
-                "name": "string",
+                "type": "string",
                 "index":"not_analyzed",
                 "doc_values":true
               }
@@ -60,19 +66,11 @@
       },
       "user": {
         "properties": {
-          "user_has_expertise": {
-            "properties": {
-              "validation": {
-                "type": "boolean",
-                "index":"not_analyzed",
-                "doc_values":true
-              },
-              "categories": {
-                "type": "string",
-                "index":"not_analyzed",
-                "doc_values":true
-              }
-            }
+          "created_at": {
+            "type": "date",
+            "format": "dateOptionalTime",
+            "index":"not_analyzed",
+            "doc_values":true
           },
           "contributors_enabled": {
             "type": "boolean",
@@ -104,7 +102,12 @@
             "index":"not_analyzed",
             "doc_values":true
           },
-          "id": {
+          "has_profile_image": {
+            "type": "boolean",
+            "index":"not_analyzed",
+            "doc_values":true
+          },
+          "id_long": {
             "type": "long",
             "index":"not_analyzed",
             "doc_values":true
@@ -114,12 +117,27 @@
             "index":"not_analyzed",
             "doc_values":true
           },
+          "is_default_profile": {
+            "type": "boolean",
+            "index":"not_analyzed",
+            "doc_values":true
+          },
+          "is_protected": {
+            "type": "boolean",
+            "index":"not_analyzed",
+            "doc_values":true
+          },
           "is_translator": {
             "type": "boolean",
             "index":"not_analyzed",
             "doc_values":true
           },
-          "lang": {
+          "is_verified": {
+            "type": "boolean",
+            "index":"not_analyzed",
+            "doc_values":true
+          },
+          "language": {
             "type": "string",
             "index":"not_analyzed",
             "doc_values":true
@@ -136,11 +154,6 @@
           },
           "name": {
             "type": "string",
-            "index":"not_analyzed",
-            "doc_values":true
-          },
-          "protected": {
-            "type": "boolean",
             "index":"not_analyzed",
             "doc_values":true
           },
@@ -164,13 +177,27 @@
             "index":"not_analyzed",
             "doc_values":true
           },
-          "utc_offset": {
-            "type": "long",
+          "user_avatar": {
+            "type": "string",
             "index":"not_analyzed",
             "doc_values":true
           },
-          "verified": {
-            "type": "boolean",
+          "user_has_expertise": {
+            "properties": {
+              "validation": {
+                "type": "boolean",
+                "index":"not_analyzed",
+                "doc_values":true
+              },
+              "categories": {
+                "type": "string",
+                "index":"not_analyzed",
+                "doc_values":true
+              }
+            }
+          },
+          "utc_offset": {
+            "type": "long",
             "index":"not_analyzed",
             "doc_values":true
           }

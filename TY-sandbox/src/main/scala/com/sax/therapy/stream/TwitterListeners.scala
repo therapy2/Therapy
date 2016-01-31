@@ -1,8 +1,9 @@
 package com.sax.therapy.stream
 
 import Marshaller._
-import com.sax.therapy.models.raw.{Tweet, Remove, SocialObject}
+import com.sax.therapy.models.raw.{Tweet, Remove, RawObject}
 import twitter4j._
+import com.sax.therapy.models.enriched.{Place => EnrichedPlace}
 
 
 /**
@@ -17,7 +18,7 @@ object TwitterListeners {
       if(s.substring(0, 8) == "{\"delete")
         println(toRemove(s))
       else
-        println(toTweet(s))
+        println(toEnrichedTweetJson(toTweet(s)))
     }
     override def onException(ex: Exception): Unit = { logger.error("Unable to listen to messages " + ex ) }
   }

@@ -6,4 +6,4 @@ package com.sax.therapy.models.raw
 case class Contributor(id: Long,
                        id_str: String,
                        screen_name: String
-                      ) extends SocialObject
+                      ) extends RawObject
