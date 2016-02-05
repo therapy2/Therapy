@@ -1,6 +1,7 @@
-package com.sax.therapy.stream
+package com.sax.therapy.twitter
 
-import Marshaller._
+import com.sax.therapy.models.APIType
+import com.sax.therapy.twitter.util.Marshaller._
 import com.sax.therapy.es._
 import com.sax.therapy.models.raw.{Tweet, Remove, RawObject}
 import twitter4j._
@@ -16,25 +17,25 @@ object TwitterListeners {
   val logger = Logger.getLogger(TwitterListeners.getClass)
   val system = ActorSystem("ESActorSystem")
   val esActor = system.actorOf(Props[RestClient], "ESClientActor")
-  def rawMessageListener = new RawStreamListener {
+  def rawMessageListener(fromStream: APIType) = new RawStreamListener {
     override def onMessage(s: String): Unit = {
       if(s.substring(0, 8) == "{\"delete") {
         val remove = toRemove(s)
-        logger.debug("Now deleting tweet_id: " + remove.delete.status.id)
+        println("Now deleting tweet_id: " + remove.delete.status.id)
         esActor ! DeleteTweet(remove)
       }
       else {
         val tweet = toTweet(s)
-        logger.debug("Now inserting tweet_id: " + tweet.id)
-        esActor ! InsertTweet(tweet)
-        logger.debug("Now inserting user_id: " + tweet.user.id)
+        println("Now inserting tweet_id: " + tweet.id)
+        esActor ! InsertTweet(tweet, fromStream)
+        println("Now inserting user_id: " + tweet.user.id)
         esActor ! InsertUser(tweet.user)
       }
     }
     override def onException(ex: Exception): Unit = { logger.error("Unable to listen to messages " + ex ) }
   }
 
-  def siteStreamListener = new SiteStreamsListener {
+  def siteStreamListener(fromStream: APIType) = new SiteStreamsListener {
     override def onFriendList(l: Long, longs: Array[Long]): Unit = {}
     override def onUserListUnsubscription(l: Long, user: User, user1: User, userList: UserList): Unit = {}
     override def onBlock(l: Long, user: User, user1: User): Unit = {}
@@ -62,7 +63,7 @@ object TwitterListeners {
     override def onUserListCreation(l: Long, user: User, userList: UserList): Unit = {}
   }
 
-  def statusListener = new StatusListener() {
+  def statusListener(fromStream: APIType) = new StatusListener() {
     override def onStatus(status: Status) { println(status.getText) }
     override def onDeletionNotice(statusDeletionNotice: StatusDeletionNotice) {}
     override def onTrackLimitationNotice(numberOfLimitedStatuses: Int) {}
@@ -71,7 +72,7 @@ object TwitterListeners {
     override def onStallWarning(warning: StallWarning) {}
   }
 
-  def userStreamListener = new UserStreamListener {
+  def userStreamListener(fromStream: APIType) = new UserStreamListener {
     override def onFriendList(longs: Array[Long]): Unit = {}
     override def onUserListUnsubscription(user: User, user1: User, userList: UserList): Unit = {}
     override def onBlock(user: User, user1: User): Unit = {}
@@ -101,14 +102,4 @@ object TwitterListeners {
     override def onTrackLimitationNotice(i: Int): Unit = {}
     override def onException(ex: Exception): Unit = { logger.error("Unable to listen to user stream " + ex ) }
   }
-
-//  def main(args: Array[String]) {
-//    val twitterStream = new TwitterStreamFactory(twitterConfig).getInstance
-//    twitterStream.addListener(rawMessageListener)
-//    twitterStream.addListener(statusListener)
-//    twitterStream.sample()
-//    Thread.sleep(6000)
-//    twitterStream.cleanUp()
-//    twitterStream.shutdown()
-//  }
 }

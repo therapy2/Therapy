@@ -1,5 +1,7 @@
 package com.sax.therapy.models.enriched
 
+import com.sax.therapy.models.APIType
+
 /**
   * Created by therapy2 on 1/30/16.
   */

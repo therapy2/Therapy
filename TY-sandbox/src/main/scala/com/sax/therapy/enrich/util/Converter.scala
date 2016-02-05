@@ -1,5 +1,6 @@
 package com.sax.therapy.enrich.util
 
+import com.sax.therapy.models.APIType
 import com.sax.therapy.models.enriched._
 import com.sax.therapy.models.raw.Entities
 
@@ -21,7 +22,7 @@ object Converter {
   def toSymbols(entities: Entities): Seq[Symbol] = {
     entities.symbols.map(s => new Symbol(s.text, new Indices(s.indices.head, s.indices.last)))
   }
-  val toEnrichments: Enrichments = {
+  def toEnrichments(stream: APIType): Enrichments = {
     //FIXME: to be replaced with proper modules
     new Enrichments(
       has_profanity = false,
@@ -33,7 +34,7 @@ object Converter {
       risk_category = "none",
       tokens = Seq.empty,
       channels = Seq.empty,
-      stream = "public"
+      stream = stream.toString
     )
   }
   val toExpertise: Expertise = {

@@ -3804,7 +3804,6 @@
         "doc_values":true
       }
     },
-    "_ttl": {"enabled":"true","default":"65m"},
     "_all": {
       "enabled": false
     }

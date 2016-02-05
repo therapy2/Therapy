@@ -1,6 +1,7 @@
 package com.sax.therapy.models.raw
 
 import com.sax.therapy.enrich.util.Converter
+import com.sax.therapy.models.APIType
 import com.sax.therapy.models.enriched.{Tweet => EnrichedTweet}
 import org.json4s._
 import org.json4s.ext.DateParser
@@ -48,7 +49,7 @@ case class Tweet(
                   withheld_scope: Option[String] = None
                 ) extends RawObject
 {
-  val enrich: EnrichedTweet = {
+  def enrich(stream: APIType): EnrichedTweet = {
     new EnrichedTweet(
       social_platform = "Twitter",
       created_at = twitterDateFormat.parse(created_at),
@@ -61,7 +62,7 @@ case class Tweet(
       language = lang.getOrElse(""),
       media = Converter.toMedia(entities.getOrElse(Entities.empty)),
       mention_entities = Converter.toMentionEntitites(entities.getOrElse(Entities.empty)),
-      enrichments = Converter.toEnrichments,
+      enrichments = Converter.toEnrichments(stream),
       place_country_code = place.getOrElse(Place.empty).country_code,
       place_name = place.getOrElse(Place.empty).name,
       possibly_sensitive = possibly_sensitive,
@@ -70,7 +71,7 @@ case class Tweet(
       reply_to_id = in_reply_to_user_id_str,
       reply_to_tweet_id = in_reply_to_status_id_str,
       retweet = retweeted_status match {
-        case Some(s) => Some(s.enrich)
+        case Some(s) => Some(s.enrich(stream))
         case None => None
       },
       retweet_count = retweet_count,

@@ -1,5 +1,6 @@
 package com.sax.therapy.es
 
+import com.sax.therapy.models.APIType
 import com.sax.therapy.models.raw.{Remove, Tweet => RawTweet, User => RawUser}
 import com.sax.therapy.models.enriched.{Tweet => EnrichedTweet, User => EnrichedUser}
 
@@ -15,7 +16,7 @@ trait MessageType {
 case class Search(filter: Map[String, String], size: Int = MAXSIZE, from: Int = 0)
 //Search response
 case class Response(content: Array[String])
-case class InsertTweet(tweet: RawTweet)
+case class InsertTweet(tweet: RawTweet, fromStream: APIType)
 case class InsertUser(user: RawUser)
 case class DeleteTweet(remove: Remove)
 case class Done() extends MessageType

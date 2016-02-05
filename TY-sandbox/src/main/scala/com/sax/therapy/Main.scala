@@ -6,7 +6,7 @@ import akka.actor.{ActorSystem, Props}
 import com.sax.therapy.conn._
 import com.sax.therapy.es._
 import com.sax.therapy.models.raw.{Remove, Tweet}
-import com.sax.therapy.stream.{RawMessage, Marshaller, TwitterStreamActor}
+import com.sax.therapy.twitter.TwitterActor
 import org.elasticsearch.client.transport.TransportClient
 import org.elasticsearch.common.settings.Settings
 import org.elasticsearch.common.transport.InetSocketTransportAddress
@@ -22,7 +22,7 @@ import twitter4j.TwitterStreamFactory
 object Main {
   def main(args: Array[String]): Unit = {
     val system = ActorSystem("TwitterStream")
-    val streamActor = system.actorOf(Props[TwitterStreamActor], "TwitterStreamActor")
+    val streamActor = system.actorOf(Props[TwitterActor], "TwitterActor")
 
 //    lazy val twitterStream = new TwitterStreamFactory(twitterConfig).getInstance
 //    new RawMessage().addStreamListener(twitterStream)

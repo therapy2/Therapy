@@ -5,7 +5,8 @@ import java.net.InetAddress
 import java.util.Properties
 
 import akka.actor.{Props, Actor}
-import com.sax.therapy.stream.Marshaller
+import com.sax.therapy.models.APIType
+import com.sax.therapy.twitter.util.Marshaller
 import org.elasticsearch.action.search.{SearchResponse, SearchRequestBuilder}
 import org.elasticsearch.client.transport.TransportClient
 import org.elasticsearch.common.settings.Settings
@@ -44,8 +45,8 @@ class TransportClient extends Actor {
     case search: Search => {
       sender ! new Response(lookupByMultipleFields(search))
     }
-    case InsertTweet(tw: RawTweet) => {
-      val tweet: String = Marshaller.toEnrichedTweetJson(tw)
+    case InsertTweet(tw: RawTweet, fromStream: APIType) => {
+      val tweet: String = Marshaller.toEnrichedTweetJson(tw, fromStream)
       esClient.prepareIndex(indexVal, tweetTypeVal, tw.id_str).
         setSource(tweet).
         get()

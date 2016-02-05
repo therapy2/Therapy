@@ -4,10 +4,12 @@ package com.sax.therapy.es
 import java.net.InetAddress
 import java.util.Properties
 
+import com.sax.therapy.models.APIType
+import com.sax.therapy.twitter.util.Marshaller
+
 import collection.JavaConversions._
 
 import akka.actor.{Props, Actor}
-import com.sax.therapy.stream.Marshaller
 import io.searchbox.client.JestClientFactory
 import io.searchbox.client.config.HttpClientConfig
 import io.searchbox.core.search.sort.Sort
@@ -44,8 +46,8 @@ class RestClient extends Actor {
     case search: Search => {
       sender ! new Response(lookupByMultipleFields(search).toArray)
     }
-    case InsertTweet(tw: RawTweet) => {
-      val tweet: String = Marshaller.toEnrichedTweetJson(tw)
+    case InsertTweet(tw: RawTweet, fromStream: APIType) => {
+      val tweet: String = Marshaller.toEnrichedTweetJson(tw, fromStream)
       val index = new Index.Builder(tweet).index(indexVal).`type`(tweetTypeVal).id(tw.id_str).build()
       esClient.execute(index)
     }

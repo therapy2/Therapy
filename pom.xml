@@ -19,6 +19,7 @@
         <typesafe.version>1.2.1</typesafe.version>
         <akka.version>2.4.1</akka.version>
         <elastic.version>2.1.1</elastic.version>
+        <jest.version>2.0.0</jest.version>
         <slf4j.version>1.6.1</slf4j.version>
     </properties>
 
