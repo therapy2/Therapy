@@ -4,7 +4,9 @@ import com.sax.therapy.models.APIType
 import com.sax.therapy.twitter.util.Marshaller._
 import com.sax.therapy.es._
 import com.sax.therapy.models.raw.{Tweet, Remove, RawObject}
-import twitter4j._
+import twitter4j.{RawStreamListener, SiteStreamsListener, User, UserStreamListener, UserList, Status, StatusListener, StatusDeletionNotice, DirectMessage, StallWarning}
+import org.slf4j.LoggerFactory
+import org.slf4j.Logger
 import com.sax.therapy.models.enriched.{Place => EnrichedPlace}
 import akka.actor.{Props, ActorSystem}
 
@@ -14,21 +16,21 @@ import akka.actor.{Props, ActorSystem}
   * Listeners for the Twitter stream API.
   */
 object TwitterListeners {
-  val logger = Logger.getLogger(TwitterListeners.getClass)
+  val logger = LoggerFactory.getLogger(TwitterListeners.getClass)
   val system = ActorSystem("ESActorSystem")
   val esActor = system.actorOf(Props[RestClient], "ESClientActor")
   def rawMessageListener(fromStream: APIType) = new RawStreamListener {
     override def onMessage(s: String): Unit = {
       if(s.substring(0, 8) == "{\"delete") {
         val remove = toRemove(s)
-        println("Now deleting tweet_id: " + remove.delete.status.id)
+        logger.debug("Now deleting tweet_id: " + remove.delete.status.id)
         esActor ! DeleteTweet(remove)
       }
       else {
         val tweet = toTweet(s)
-        println("Now inserting tweet_id: " + tweet.id)
+        logger.debug("Now inserting tweet_id: " + tweet.id)
         esActor ! InsertTweet(tweet, fromStream)
-        println("Now inserting user_id: " + tweet.user.id)
+        logger.debug("Now inserting user_id: " + tweet.user.id)
         esActor ! InsertUser(tweet.user)
       }
     }

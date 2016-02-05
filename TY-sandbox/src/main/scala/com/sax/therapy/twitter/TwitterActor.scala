@@ -20,7 +20,7 @@ class TwitterActor extends Actor{
     listener ! new ListenToStream(listeners)
 
     //create listener actor for filtered api
-    val filter = new FilteredRawMessage(new FilterQuery().track("oil", "gold", "petrol"))
+    val filter = new FilteredRawMessage(new FilterQuery().track("oil", "gold", "petrol", "petroleum"))
     val filterListener = context.actorOf(Props[TwitterFilterListenerActor], "TwitterFilterListener")
     filterListener ! new ListenToFilter(filter)
   }
