@@ -10,6 +10,8 @@
     <packaging>pom</packaging>
     <name>Social Therapy</name>
 
+
+
     <properties>
         <scala.version>2.11</scala.version>
         <scalatest.version>2.2.4</scalatest.version>
