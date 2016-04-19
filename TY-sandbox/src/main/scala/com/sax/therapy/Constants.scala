@@ -19,4 +19,15 @@ object Constants {
   val hostField = "es.tweet.host"
   val portField = "es.tweet.port"
   val indexField = "es.tweet.index"
+
+  val rssConfName = "rss/feeds.conf"
+  val newsHostField = "reuters.feed.newsHost"
+  val newsPagesField = "reuters.feed.newsPages"
+  val reutersHostField = "reuters.feed.reutersHost"
+  val reutersPagesField = "reuters.feed.reutersPages"
+  val videoHostField = "reuters.feed.videoHost"
+  val videoPagesField = "reuters.feed.videoPages"
+  val blogHostField = "reuters.feed.blogHost"
+  val blogPagesField = "reuters.feed.blogPages"
+  val specialPagesField = "reuters.feed.specialPages"
 }

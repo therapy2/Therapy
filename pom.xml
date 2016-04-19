@@ -23,6 +23,7 @@
         <elastic.version>2.1.1</elastic.version>
         <jest.version>2.0.0</jest.version>
         <slf4j.version>1.6.1</slf4j.version>
+        <jsoup.version>1.9.1</jsoup.version>
     </properties>
 
     <modules>

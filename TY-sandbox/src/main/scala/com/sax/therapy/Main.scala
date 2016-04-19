@@ -7,6 +7,7 @@ import com.sax.therapy.conn._
 import com.sax.therapy.es._
 import com.sax.therapy.models.raw.{Remove, Tweet}
 import com.sax.therapy.twitter.TwitterActor
+import com.sax.therapy.twitter.stream.RawMessage
 import org.elasticsearch.client.transport.TransportClient
 import org.elasticsearch.common.settings.Settings
 import org.elasticsearch.common.transport.InetSocketTransportAddress
